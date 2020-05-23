@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div id="mapid"></div>
+{% endblock %}
+
+{% block js %}
+    <script src="{% static 'js/home.js' %}"></script>
+{% endblock %}
