@@ -133,3 +133,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # Media files
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+NAIADES_API = os.environ.get("NAIADES_API", "http://127.0.0.1:8000/api")
