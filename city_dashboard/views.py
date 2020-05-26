@@ -9,10 +9,10 @@ def home(request):
     return render(request, 'home.html')
 
 
-def get_from_dashboard(metric):
+def get_from_dashboard(metric, params=None):
     return JsonResponse(
         requests.
-            get(f"{NAIADES_API}/measurements/data?metric={metric}").
+            get(f"{NAIADES_API}/measurements/data?metric={metric}{params or ''}").
             json()
     )
 
@@ -23,3 +23,9 @@ def api_weekly_total(request):
 
 def api_meters(request):
     return get_from_dashboard(metric='meter_info')
+
+
+def api_meter_consumption(request):
+    meter_number = request.GET.get("meter_number")
+
+    return get_from_dashboard(metric='meter_hourly_consumption', params=f'&meter_number={meter_number}')

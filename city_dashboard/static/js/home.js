@@ -59,12 +59,38 @@ $(function () {
             );
         },
 
+        getPopupContent: function(meter, consumption) {
+            const that = this;
+
+            return $("<div />")
+                .addClass("popup-content")
+                .append($(`<div class="consumption">${consumption} m<sup>3</sup></div>`))
+                .append($('<div class="prop-label consumption-label">Total consumption this week</div>'))
+                .append($('<div class="prop-label">Meter number</div>'))
+                .append($(`<div class="prop-value">${meter.meter_number}</div>`))
+                .append($(`<div class="prop-label">Type</div>`))
+                .append($(`<div class="prop-value">${meter.activity}</div>`))
+                .append($(`<a href="#" class="action">More Details</a>`))
+                .append($(`<button class="btn btn-primary btn-sm action btn--first"><i class="fa fa-chart-line"></i> Show hourly data</button>`)
+                    .on("click", function() {
+                        that.showChart(meter)
+                    })
+                )
+                .append($(`<button class="btn btn-default btn-sm action"><i class="fa fa-plus"></i> Add to chart</button>`)
+                    .on("click", function() {
+                        that.addToChart(meter)
+                    })
+                )
+                .get(0)
+        },
+
         showData: function() {
             const map = this.map;
 
             // get max consumption
-            const maxConsumption = this.getMaxConsumption()
+            const maxConsumption = this.getMaxConsumption();
 
+            const that = this;
             $.each(this.measurements, function(idx, measurement) {
                 const meter = measurement.meter;
 
@@ -84,7 +110,7 @@ $(function () {
                         .toLocaleString('en-US', {maximumFractionDigits:0});
 
                     clickedCircle
-                        .bindPopup(`<b>${consumption} m<sup>3</sup></b><br>Type: ${meter.activity}<br>Meter: ${meter.meter_number}<br><a href="#">More Details</a>`)
+                        .bindPopup(that.getPopupContent(meter, consumption))
                         .openPopup();
                 });
 
@@ -97,6 +123,19 @@ $(function () {
 
             // load data
             this.loadData();
+        },
+
+        showChart: function(meter) {
+            this.clearChart();
+            this.addToChart(meter);
+        },
+
+        clearChart: function() {
+            window.HomeCharts.clear();
+        },
+
+        addToChart: function(meter) {
+            window.HomeCharts.addMeter(meter);
         }
     };
 

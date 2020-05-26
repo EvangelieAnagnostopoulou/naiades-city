@@ -38,19 +38,17 @@
               <!-- /.card-header -->
               <div class="card-body">
                 <div class="row">
-                  <div class="col-md-8">
+                  <div class="col-md-12">
                     <p class="text-center">
                       <strong>Water Consumption: 1 Jan, 2020 - 30 Jul, 2020</strong>
                     </p>
 
-                    <div class="chart"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
-                      <!-- Sales Chart Canvas -->
-                      <canvas id="salesChart" height="450" style="height: 180px; display: block; width: 794px;" width="1985" class="chartjs-render-monitor"></canvas>
+                    <div id="home-chart-container">
                     </div>
                     <!-- /.chart-responsive -->
                   </div>
                   <!-- /.col -->
-                  <div class="col-md-4">
+                  <div class="col-md-12">
                     <p class="text-center">
                       <strong>Goal Completion</strong>
                     </p>
@@ -146,5 +144,6 @@
 
 {% block js %}
     <script src="{% static 'js/colors.js' %}"></script>
+    <script src="{% static 'js/home-charts.js' %}"></script>
     <script src="{% static 'js/home.js' %}"></script>
 {% endblock %}
