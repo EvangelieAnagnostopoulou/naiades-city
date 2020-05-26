@@ -1,7 +1,7 @@
 $(function () {
     window.NaiadesMap = {
         initMap: function() {
-            this.map = L.map('mapid').setView([38.3502, -0.4747], 14);
+            this.map = L.map('mapid').setView([38.3450, -0.4791], 15);
 
             L.tileLayer(
                 'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
@@ -84,7 +84,7 @@ $(function () {
                         .toLocaleString('en-US', {maximumFractionDigits:0});
 
                     clickedCircle
-                        .bindPopup(`<b>${consumption} m<sup>3</sup></b><br>Type: ${meter.activity}<br>Meter: ${meter.meter_number}`)
+                        .bindPopup(`<b>${consumption} m<sup>3</sup></b><br>Type: ${meter.activity}<br>Meter: ${meter.meter_number}<br><a href="#">More Details</a>`)
                         .openPopup();
                 });
 
