@@ -17,13 +17,13 @@ Including another URLconf
 from django.urls import path, include
 
 from django.contrib import admin
-
+from project.settings import URL_PREFIX
 
 urlpatterns = [
     # django admin
-    path('admin/', admin.site.urls),
-    path('admin/', include('loginas.urls')),
+    path(f'{URL_PREFIX}admin/', admin.site.urls),
+    path(f'{URL_PREFIX}admin/', include('loginas.urls')),
 
     # city dashboard
-    path('', include('city_dashboard.urls')),
+    path(f'{URL_PREFIX}', include('city_dashboard.urls')),
 ]

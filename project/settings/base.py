@@ -114,11 +114,13 @@ LOGIN_REDIRECT_URL = '/'
 
 APPEND_SLASH = True
 
+# Deployment prefix
+URL_PREFIX = os.environ.get('URL_PREFIX', '')
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = f'{URL_PREFIX[:-1]}/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
@@ -135,3 +137,5 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 NAIADES_API = os.environ.get("NAIADES_API", "http://127.0.0.1:8000/api")
+
+
