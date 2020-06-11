@@ -9,7 +9,7 @@ $(function() {
 
            const that = this;
            $.ajax({
-               "url": `/api/meters/consumption/?meter_number=${meter.meter_number}`,
+               "url": `/${URL_PREFIX}api/meters/consumption/?meter_number=${meter.meter_number}`,
                success: function (response) {
                    // parse consumtion data
                    $.each(response.data, function(idx, datum) {

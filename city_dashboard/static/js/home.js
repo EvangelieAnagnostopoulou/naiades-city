@@ -21,7 +21,7 @@ $(function () {
             this.measurements = [];
             const that = this;
             $.ajax({
-                "url": "/api/meters/",
+                "url": `/${URL_PREFIX}api/meters/`,
                 success: function(response) {
                     const meters = response.data;
 
@@ -33,7 +33,7 @@ $(function () {
 
                     // get weekly consumptions
                     $.ajax({
-                        "url": "/api/weekly-total/",
+                        "url": `/${URL_PREFIX}api/weekly-total/`,
                         success: function(response) {
                             const records = response.data;
 
