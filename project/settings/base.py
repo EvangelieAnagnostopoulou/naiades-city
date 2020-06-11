@@ -120,7 +120,7 @@ URL_PREFIX = os.environ.get('URL_PREFIX', '')
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
-STATIC_URL = f'{URL_PREFIX[:-1]}/static/'
+STATIC_URL = f'/{URL_PREFIX}static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
