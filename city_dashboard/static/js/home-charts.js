@@ -1,17 +1,24 @@
 $(function() {
    window.HomeCharts = {
        chartId: "home-chart-container",
-       meters: [],
+       variables: [],
        data: [],
 
-       addMeter: function(meter) {
-           this.meters.push(meter);
-
+       fetchData: function(query, value) {
            const that = this;
+
+           let path = "";
+           if (query === "meter_number") {
+               path = "api/meters/consumption/";
+           }
+           else if (query === "activity") {
+               path = "api/consumption/average/";
+           }
+
            $.ajax({
-               "url": `/${URL_PREFIX}api/meters/consumption/?meter_number=${meter.meter_number}`,
+               "url": `/${URL_PREFIX}${path}?${query}=${value}`,
                success: function (response) {
-                   // parse consumtion data
+                   // parse consumption data
                    $.each(response.data, function(idx, datum) {
                        datum["consumption"] = Number(datum["consumption"]);
                    });
@@ -25,8 +32,23 @@ $(function() {
            });
        },
 
+       addMeter: function(meter) {
+           this.variables.push(meter);
+
+           this.fetchData('meter_number', meter.meter_number);
+       },
+
+       addActivity: function(activity) {
+           this.variables.push({
+               meter_number: "avg",
+               label: `${activity || 'Total'} average`
+           });
+
+            this.fetchData('activity', activity);
+       },
+
        clear: function() {
-           this.meters = [];
+           this.variables = [];
            this.data = [];
 
            $(this.chartId).empty();
@@ -34,12 +56,14 @@ $(function() {
 
        getGraphs: function() {
            const graphs = [];
-           $.each(this.meters, function(idx, meter) {
+           $.each(this.variables, function(idx, variable) {
+               const label = variable.label || variable.meter_number;
+
                graphs.push({
-                    "balloonText": `${meter.meter_number} Consumption: [[value]] lt.`,
-                    "title": `${meter.meter_number}`,
+                    "balloonText": `${label} - [[date]]: [[value]] lt.`,
+                    "title": label,
                     "bullet": "round",
-                    "valueField": `${meter.meter_number}_consumption`
+                    "valueField": `${variable.meter_number}_consumption`
                })
            });
 
@@ -51,7 +75,7 @@ $(function() {
 
             const that = this;
             $.each(this.data, function(idx, series) {
-                const meter = that.meters[idx];
+                const variable = that.variables[idx];
 
                 $.each(series, function(jdx, point) {
                     const date = (new Date(point.date)).toISOString().slice(0, 13)
@@ -61,7 +85,8 @@ $(function() {
                         consumptionsByDate[date] = {};
                     }
 
-                    consumptionsByDate[date][`${meter.meter_number}_consumption`] = point.consumption;
+                    consumptionsByDate[date][`${variable.meter_number}_consumption`] =
+                        point.consumption || point.avg_consumption;
                 });
             });
 
@@ -76,9 +101,9 @@ $(function() {
                    ...consumptionsByDate[date]
                };
 
-               $.each(that.meters, function(jdx, meter) {
-                  if (!entry[`${meter.meter_number}_consumption`]) {
-                      entry[`${meter.meter_number}_consumption`] = 0;
+               $.each(that.variables, function(jdx, variable) {
+                  if (!entry[`${variable.meter_number}_consumption`]) {
+                      entry[`${variable.meter_number}_consumption`] = 0;
                   }
                });
 
@@ -107,6 +132,9 @@ $(function() {
                     "enabled": true,
                     "useGraphSettings": true
                 },
+               	"chartScrollbar": {
+		            "enabled": true
+	            },
                 "numberFormatter": {
                     "precision": 2,
                     "decimalSeparator": ".",

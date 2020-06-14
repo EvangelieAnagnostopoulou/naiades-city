@@ -30,3 +30,12 @@
 #home-chart-container {
     height: 500px;
 }
+
+/* Filters */
+#dashboard-filters {
+    padding: 20px 12px;
+}
+
+#dashboard-filters select {
+    margin-left: 10px;
+}

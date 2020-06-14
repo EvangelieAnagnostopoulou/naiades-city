@@ -2,11 +2,15 @@ import requests
 from django.http import JsonResponse
 from django.shortcuts import render
 
-from project.settings import NAIADES_API
+from city_dashboard.lists import ACTIVITY_TYPES
+from project.settings import NAIADES_API, URL_PREFIX
 
 
 def home(request):
-    return render(request, 'home.html')
+    return render(request, 'home.html', {
+        'URL_PREFIX': URL_PREFIX,
+        'ACTIVITY_TYPES': ACTIVITY_TYPES,
+    })
 
 
 def get_from_dashboard(metric, params=None):
@@ -29,3 +33,11 @@ def api_meter_consumption(request):
     meter_number = request.GET.get("meter_number")
 
     return get_from_dashboard(metric='meter_hourly_consumption', params=f'&meter_number={meter_number}')
+
+
+def api_average_consumption(request):
+    params = ''
+    if request.GET.get("activity"):
+        params = f'&activity={request.GET["activity"]}'
+
+    return get_from_dashboard(metric='avg_hourly_consumption', params=params)

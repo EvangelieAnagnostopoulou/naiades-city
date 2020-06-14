@@ -15,10 +15,15 @@ $(function () {
             ).addTo(this.map);
         },
 
+        // state management
+        fetchedMeasurements: null,
         measurements: null,
 
+        // filters
+        selectedActivityType: '',
+
         loadData: function() {
-            this.measurements = [];
+            this.fetchedMeasurements = [];
             const that = this;
             $.ajax({
                 "url": `/${URL_PREFIX}api/meters/`,
@@ -39,18 +44,44 @@ $(function () {
 
                             // add to measurements
                             $.each(records, function(idx, record) {
-                                that.measurements.push({
+                                that.fetchedMeasurements.push({
                                     meter: metersByNumber[record.meter_number],
                                     totalConsumption: Number(record.total_consumption)
                                 });
                             });
 
-                            // show on map
-                            that.showData();
+                            // filter & show
+                            that.showFilteredMeasurements();
                         }
                     })
                 }
             });
+        },
+
+        filterMeasurements: function() {
+            // clear previous points
+            if (this.measurements) {
+                $.each(this.measurements, function(idx, measurement) {
+                    measurement.point.remove();
+                })
+            }
+
+            // filter measurements
+            this.measurements = [];
+            const that = this;
+            $.each(this.fetchedMeasurements, function(idx, measurement) {
+                if ((that.selectedActivityType === '') || (measurement.meter.activity === that.selectedActivityType)) {
+                    that.measurements.push(measurement);
+                }
+            });
+        },
+
+        showFilteredMeasurements: function() {
+            // filter
+            this.filterMeasurements();
+
+            // show on map
+            this.showData();
         },
 
         getMaxConsumption: function() {
@@ -73,7 +104,7 @@ $(function () {
                 .append($(`<a href="#" class="action">More Details</a>`))
                 .append($(`<button class="btn btn-primary btn-sm action btn--first"><i class="fa fa-chart-line"></i> Show hourly data</button>`)
                     .on("click", function() {
-                        that.showChart(meter)
+                        that.showMeterChart(meter)
                     })
                 )
                 .append($(`<button class="btn btn-default btn-sm action"><i class="fa fa-plus"></i> Add to chart</button>`)
@@ -118,23 +149,48 @@ $(function () {
         },
 
         load: function() {
+            // setup filter events
+            this.setupFilters();
+
             // initialize map component
             this.initMap();
 
             // load data
             this.loadData();
+
+            // show all data average
+            this.showActivityChart();
         },
 
-        showChart: function(meter) {
+        setupFilters: function() {
+            const that = this;
+            $('#activity-type').on('change', function() {
+                // set new selection
+                that.selectedActivityType = $(this).val();
+
+                // filter & show
+                that.showFilteredMeasurements();
+
+                // show activity average
+                that.showActivityChart();
+            });
+        },
+
+        showMeterChart: function(meter) {
             this.clearChart();
-            this.addToChart(meter);
+            this.addToMeterChart(meter);
+        },
+
+        showActivityChart: function() {
+            this.clearChart();
+            window.HomeCharts.addActivity(this.selectedActivityType);
         },
 
         clearChart: function() {
             window.HomeCharts.clear();
         },
 
-        addToChart: function(meter) {
+        addToMeterChart: function(meter) {
             window.HomeCharts.addMeter(meter);
         }
     };

@@ -3,10 +3,22 @@
 {% load static %}
 
 {% block css %}
-    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}?v=20200614.1">
 {% endblock %}
 
 {% block content %}
+    <div class="row">
+        <div class="col-xs-12">
+            <div id="dashboard-filters">
+                Show
+                <select id="activity-type">
+                    {% for value, label in ACTIVITY_TYPES %}
+                        <option value="{{ value }}">{{ label }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+    </div>
     <div id="mapid"></div>
     <div class="row" style="margin-top: 10px;">
           <div class="col-md-12">
@@ -58,9 +70,9 @@
 
 {% block js %}
     <script>
-        var URL_PREFIX = '';
+        const URL_PREFIX = '{{ URL_PREFIX }}';
     </script>
     <script src="{% static 'js/colors.js' %}"></script>
-    <script src="{% static 'js/home-charts.js' %}"></script>
-    <script src="{% static 'js/home.js' %}"></script>
+    <script src="{% static 'js/home-charts.js' %}?v=20200614.1"></script>
+    <script src="{% static 'js/home.js' %}?v=20200614.1"></script>
 {% endblock %}
