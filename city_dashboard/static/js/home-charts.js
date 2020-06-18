@@ -78,7 +78,7 @@ $(function() {
                 const variable = that.variables[idx];
 
                 $.each(series, function(jdx, point) {
-                    const date = (new Date(point.date)).toISOString().slice(0, 13)
+                    const date = (new Date(point.date_grouped)).toISOString().slice(0, 10)
                        .replace("T", " ");
 
                     if (!consumptionsByDate[date]) {

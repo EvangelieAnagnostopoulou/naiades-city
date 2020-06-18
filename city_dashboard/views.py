@@ -40,4 +40,4 @@ def api_average_consumption(request):
     if request.GET.get("activity"):
         params = f'&activity={request.GET["activity"]}'
 
-    return get_from_dashboard(metric='avg_hourly_consumption', params=params)
+    return get_from_dashboard(metric='avg_daily_consumption', params=params)
