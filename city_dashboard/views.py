@@ -32,7 +32,7 @@ def api_meters(request):
 def api_meter_consumption(request):
     meter_number = request.GET.get("meter_number")
 
-    return get_from_dashboard(metric='meter_hourly_consumption', params=f'&meter_number={meter_number}')
+    return get_from_dashboard(metric='meter_daily_consumption', params=f'&meter_number={meter_number}')
 
 
 def api_average_consumption(request):

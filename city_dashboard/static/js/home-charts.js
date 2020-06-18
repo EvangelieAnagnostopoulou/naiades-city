@@ -8,11 +8,16 @@ $(function() {
            const that = this;
 
            let path = "";
+           let title = "";
+           let scroll = false;
            if (query === "meter_number") {
                path = "api/meters/consumption/";
+               title = "Daily water consumption over the last year";
+               scroll = true;
            }
            else if (query === "activity") {
                path = "api/consumption/average/";
+               title = `Average daily water consumption for ${value || "all"} watering points`
            }
 
            $.ajax({
@@ -20,14 +25,19 @@ $(function() {
                success: function (response) {
                    // parse consumption data
                    $.each(response.data, function(idx, datum) {
-                       datum["consumption"] = Number(datum["consumption"]);
+                       let consumptionKey = "avg_daily_consumption";
+                       if (Object.keys(datum).indexOf("daily_consumption") >= 0){
+                           consumptionKey = "daily_consumption"
+                       }
+
+                       datum["consumption"] = Number(datum[consumptionKey]);
                    });
 
                    // add chart data
                    that.data.push(response.data);
 
                    // show chart
-                   that.showChart();
+                   that.showChart(title, scroll);
                }
            });
        },
@@ -85,8 +95,7 @@ $(function() {
                         consumptionsByDate[date] = {};
                     }
 
-                    consumptionsByDate[date][`${variable.meter_number}_consumption`] =
-                        point.consumption || point.avg_consumption;
+                    consumptionsByDate[date][`${variable.meter_number}_consumption`] = point.consumption;
                 });
             });
 
@@ -113,7 +122,7 @@ $(function() {
            return result
        },
 
-       getChartConfig: function() {
+       getChartConfig: function(title) {
            return {
                "fontFamily":  "'Open Sans', sans-serif",
                 "theme": "light",
@@ -146,7 +155,7 @@ $(function() {
                     {
                         "id": "Title-1",
                         "size": 15,
-                        "text": "Hourly consumption last week"
+                        "text": title || "Consumption data"
                     }
                 ],
                 valueAxes: [
@@ -175,17 +184,19 @@ $(function() {
            };
        },
 
-       showChart: function() {
+       showChart: function(title, scroll) {
            AmCharts.makeChart(
                this.chartId,
-               this.getChartConfig()
+               this.getChartConfig(title)
            );
 
            // scroll to chart
-           $('html, body').animate(
-               { scrollTop: $(`#${this.chartId}`).offset().top},
-               1000
-           );
+           if (scroll) {
+               $('html, body').animate(
+                   { scrollTop: $(`#${this.chartId}`).offset().top},
+                   1000
+               );
+           }
        }
    };
 });
