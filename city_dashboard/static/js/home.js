@@ -109,7 +109,7 @@ $(function () {
                 )
                 .append($(`<button class="btn btn-default btn-sm action"><i class="fa fa-plus"></i> Add to chart</button>`)
                     .on("click", function() {
-                        that.addToChart(meter)
+                        that.addToMeterChart(meter)
                     })
                 )
                 .get(0)
