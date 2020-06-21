@@ -6,6 +6,7 @@ from city_dashboard import views
 urlpatterns = [
     # pages
     path('', views.home, name='home'),
+    path('details', views.activityDetails, name='activity'),
 
     # api
     path('api/meters/', views.api_meters, name='api-meters'),

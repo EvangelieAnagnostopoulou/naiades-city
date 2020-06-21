@@ -12,6 +12,13 @@ def home(request):
         'ACTIVITY_TYPES': ACTIVITY_TYPES,
     })
 
+def activityDetails(request):
+    id = request.GET.get('id')
+    return render(request, 'activity-details.html', {
+        'URL_PREFIX': URL_PREFIX,
+        'ACTIVITY_TYPES': ACTIVITY_TYPES,
+        'id': id,
+    })
 
 def get_from_dashboard(metric, params=None):
     return JsonResponse(
