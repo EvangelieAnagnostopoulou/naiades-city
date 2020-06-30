@@ -12,13 +12,24 @@ def home(request):
         'ACTIVITY_TYPES': ACTIVITY_TYPES,
     })
 
-def activityDetails(request):
+
+def activity_details(request):
     id = request.GET.get('id')
     return render(request, 'activity-details.html', {
         'URL_PREFIX': URL_PREFIX,
         'ACTIVITY_TYPES': ACTIVITY_TYPES,
         'id': id,
     })
+
+
+def list(request):
+    id = request.GET.get('id')
+    return render(request, 'list.html', {
+        'URL_PREFIX': URL_PREFIX,
+        'ACTIVITY_TYPES': ACTIVITY_TYPES,
+        'id': id,
+    })
+
 
 def get_from_dashboard(metric, params=None):
     return JsonResponse(
@@ -30,6 +41,16 @@ def get_from_dashboard(metric, params=None):
 
 def api_weekly_total(request):
     return get_from_dashboard(metric='weekly_consumption_by_meter')
+
+
+def api_consumption(request):
+    params = ''
+
+    for param in ["activity", "days", "days_offset"]:
+        if request.GET.get(param):
+            params += f'&{param}={request.GET[param]}'
+
+    return get_from_dashboard(metric='consumption', params=params)
 
 
 def api_meters(request):

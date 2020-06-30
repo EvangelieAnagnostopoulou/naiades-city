@@ -1,59 +1,106 @@
-var chartData = generateChartData();
 
-var chart = AmCharts.makeChart("chart-weekly-consumption", {
-    "type": "serial",
-    "theme": "none",
-    "dataProvider": chartData,
-    "synchronizeGrid":true,
-    "valueAxes": [{
-        "id":"v1",
-        "axisColor": "#007bff",
-        "axisThickness": 2,
-        "axisAlpha": 1,
-        "position": "left"
-    }, {
-        "id":"v2",
-        "axisColor": "#6c757d",
-        "axisThickness": 2,
-        "axisAlpha": 1,
-        "position": "right"
-    } ],
-    "graphs": [{
-        "valueAxis": "v1",
-        "lineColor": "#007bff",
-        "bullet": "round",
-        "bulletBorderThickness": 1,
-        "hideBulletsCount": 30,
-        "title": "This week",
-        "valueField": "visits",
-    "fillAlphas": 0
-    }, {
-        "valueAxis": "v2",
-        "lineColor": "#6c757d",
-        "bullet": "square",
-        "bulletBorderThickness": 1,
-        "hideBulletsCount": 30,
-        "title": "Last week",
-        "valueField": "hits",
-    "fillAlphas": 0
-    } ],
-    "chartScrollbar": {},
-    "chartCursor": {
-        "cursorPosition": "mouse"
-    },
-    "categoryField": "date",
-    "categoryAxis": {
-        "parseDates": true,
-        "axisColor": "#DADADA",
-        "minorGridEnabled": true
-    },
-    "export": {
-    	"enabled": false,
-     }
+
+$(function() {
+
+    const showWeeklyData = function(data) {
+        const chart = AmCharts.makeChart("chart-weekly-consumption", {
+            "type": "serial",
+            "hideCredits":true,
+            "theme": "none",
+            "dataProvider": data,
+            "synchronizeGrid":true,
+            "valueAxes": [{
+                "id":"v1",
+                "axisColor": "#007bff",
+                "axisThickness": 2,
+                "axisAlpha": 1,
+                "position": "left"
+            }],
+            "graphs": [{
+                "valueAxis": "v1",
+                "lineColor": "#007bff",
+                "bullet": "round",
+                "bulletBorderThickness": 1,
+                "hideBulletsCount": 30,
+                "title": "This week",
+                "valueField": "this_week",
+            "fillAlphas": 0
+            }, {
+                "valueAxis": "v1",
+                "lineColor": "#6c757d",
+                "bullet": "square",
+                "bulletBorderThickness": 1,
+                "hideBulletsCount": 30,
+                "title": "Last week",
+                "valueField": "last_week",
+            "fillAlphas": 0
+            } ],
+            "chartScrollbar": {},
+            "chartCursor": {
+                "cursorPosition": "mouse"
+            },
+            "categoryField": "idx",
+            "categoryAxis": {
+                "axisColor": "#DADADA",
+                "minorGridEnabled": true
+            },
+            "export": {
+                "enabled": true,
+                "menu": []
+             }
+        });
+
+        chart.addListener("dataUpdated", zoomChart);
+        zoomChart();
+    };
+
+    const weekConsumptionUrl = `/${URL_PREFIX}api/consumption/?activity=${ACTIVITY_ID}&days=7`;
+
+    // get this week's data
+    $.ajax({
+        url: weekConsumptionUrl,
+        success: function (thisWeek) {
+            // get last week's data
+            $.ajax({
+                url: `${weekConsumptionUrl}&days_offset=7`,
+                success: function (lastWeek) {
+                    const data = [];
+
+                    const periods = [
+                        {
+                            prop: "last_week",
+                            data: lastWeek.data
+                        },
+                        {
+                            prop: "this_week",
+                            data: thisWeek.data
+                        },
+                    ];
+
+                    $.each(periods, function(jdx, period) {
+                        $.each(period.data, function(idx, datum) {
+                            if (!data[idx]) {
+                                data[idx] = {
+                                    "idx": idx,
+                                }
+                            }
+
+                            data[idx][period.prop] = datum.total_consumption;
+                        });
+                    });
+
+                    console.log(data);
+
+                    showWeeklyData(data);
+                }
+            })
+        }
+    });
 });
 
-chart.addListener("dataUpdated", zoomChart);
-zoomChart();
+var chartData = generateChartData();
+
+
 
 
 // generate some random data, quite different range
@@ -94,6 +141,7 @@ function zoomChart(){
 
 var chart = AmCharts.makeChart("chart-monthly-cons", {
     "type": "serial",
+    "hideCredits":true,
     "theme": "none",
     "dataProvider": chartData,
     "synchronizeGrid":true,
@@ -140,12 +188,14 @@ var chart = AmCharts.makeChart("chart-monthly-cons", {
         "minorGridEnabled": true
     },
     "export": {
-    	"enabled": false,
+    	"enabled": true,
+        "menu": []
      }
 });
 var chart = AmCharts.makeChart("chart-monthly-cons", {
   "type": "serial",
-     "theme": "none",
+  "hideCredits":true,
+    "theme": "none",
   "categoryField": "month",
   //"rotate": true,
   "startDuration": 1,
@@ -215,7 +265,8 @@ var chart = AmCharts.makeChart("chart-monthly-cons", {
     }
   ],
     "export": {
-    	"enabled": false
+    	"enabled": true,
+        "menu": []
      }
 
 });
@@ -223,6 +274,7 @@ var chart = AmCharts.makeChart("chart-monthly-cons", {
 var chartData2 = generateChartData2();
 var chart = AmCharts.makeChart("chart-yearly-cons", {
     "type": "serial",
+    "hideCredits":true,
     "theme": "none",
     "marginRight": 80,
     "autoMarginOffset": 20,
@@ -264,7 +316,8 @@ var chart = AmCharts.makeChart("chart-yearly-cons", {
         "minorGridEnabled": true
     },
     "export": {
-        "enabled": false
+        "enabled": true,
+        "menu": []
     }
 });
 

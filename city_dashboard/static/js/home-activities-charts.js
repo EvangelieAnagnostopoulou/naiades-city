@@ -71,6 +71,8 @@ var chart = AmCharts.makeChart("chartdiv", {
 
 chart.addListener("init", handleInit);
 
+//chart.logo.disabled = true;
+
 chart.addListener("rollOverSlice", function(e) {
   handleRollOver(e);
 });

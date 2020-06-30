@@ -16,11 +16,13 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
 
-            <button type="button" class="btn btn-sm btn-secondary float-right" style="margin-left: 10px;">
+            <button type="button" class="btn btn-sm btn-secondary float-right" style="margin-left: 10px;" onclick="exportReport();">
                     <i class="fas fa-download"></i>
                   </button>
-            <a href="#"><span class="badge badge-success float-sm-right" style="margin-top: 5px;">View all</span></a></li>
-            <!--<ol class="breadcrumb float-sm-right">
+            {% if id in 'Public Gardens,Fonts,Municipal offices,Municipal Sport facilities,Schools,Fire Hydrants,Irrigation hydrants, Hydrants,Houses,Other Sport facilities'  %}
+            <a href="{% url 'list' %}?id={{ id }}"><span class="badge badge-success float-sm-right" style="margin-top: 5px;">View all</span></a></li>
+            {% endif %}
+              <!--<ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#"><span class="badge badge-success">View all</span></a></li>
               <li class="breadcrumb-item active">Dashboard v3</li>
             </ol> -->
@@ -222,9 +224,11 @@
 {% block js %}
     <script>
         const URL_PREFIX = '{{ URL_PREFIX }}';
+        const ACTIVITY_ID = '{{ id }}';
     </script>
     <script src="{% static 'js/colors.js' %}"></script>
     <script src="{% static 'js/home-charts.js' %}?v=20200614.1"></script>
     <script src="{% static 'js/activity-details.js' %}?v=20200614.1"></script>
     <script src="{% static 'js/home.js' %}?v=20200614.1"></script>
+    <script src="{% static 'js/report.js' %}?v=20200615.1"></script>
 {% endblock %}
