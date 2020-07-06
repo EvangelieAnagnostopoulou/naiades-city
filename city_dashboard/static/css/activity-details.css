@@ -1,0 +1,8 @@
+.loading-chart {
+    text-align: center;
+    padding: 40px;
+}
+
+.loading-chart > i.fa {
+    font-size: 32px;
+}

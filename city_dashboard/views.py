@@ -14,11 +14,14 @@ def home(request):
 
 
 def activity_details(request):
-    id = request.GET.get('id')
+    activity = request.GET.get('id')
+    activity_name = [a[1] for a in ACTIVITY_TYPES if a[0] == activity][0]
+
     return render(request, 'activity-details.html', {
         'URL_PREFIX': URL_PREFIX,
         'ACTIVITY_TYPES': ACTIVITY_TYPES,
-        'id': id,
+        'id': activity,
+        'activity_name': activity_name,
     })
 
 
