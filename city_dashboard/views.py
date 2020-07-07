@@ -14,15 +14,29 @@ def home(request):
 
 
 def activity_details(request):
-    activity = request.GET.get('id')
-    activity_name = [a[1] for a in ACTIVITY_TYPES if a[0] == activity][0]
+    _id = request.GET.get('id')
 
-    return render(request, 'activity-details.html', {
+    # define params
+    params = {
         'URL_PREFIX': URL_PREFIX,
         'ACTIVITY_TYPES': ACTIVITY_TYPES,
-        'id': activity,
-        'activity_name': activity_name,
-    })
+    }
+
+    try:
+        name = [a[1] for a in ACTIVITY_TYPES if a[0] == _id][0]
+
+        params.update({
+            "activity": _id,
+            "name": name,
+        })
+    except IndexError:
+        params.update({
+            "meter_number": _id,
+            "name": f'Meter {_id}',
+        })
+
+    # render
+    return render(request, 'activity-details.html', params)
 
 
 def list(request):
@@ -49,7 +63,7 @@ def api_weekly_total(request):
 def api_consumption(request):
     params = ''
 
-    for param in ["activity", "days", "days_offset"]:
+    for param in ["activity", "days", "days_offset", "id"]:
         if request.GET.get(param):
             params += f'&{param}={request.GET[param]}'
 

@@ -71,7 +71,7 @@ $(function() {
             zoomChart();
         };
 
-        const weekConsumptionUrl = `/${URL_PREFIX}api/consumption/?activity=${ACTIVITY_ID}&days=7`;
+        const weekConsumptionUrl = `/${URL_PREFIX}api/consumption/?${ENTITY.type}=${ENTITY.value}&days=7`;
 
         // get this week's data
         $.ajax({
@@ -115,7 +115,7 @@ $(function() {
     };
 
     const loadMonthly = function() {
-        const yearConsumptionUrl = `/${URL_PREFIX}api/consumption/?activity=${ACTIVITY_ID}&days=365`;
+        const yearConsumptionUrl = `/${URL_PREFIX}api/consumption/?${ENTITY.type}=${ENTITY.value}&days=365`;
 
         const showYearlyChart = function(data) {
             removeLoading('chart-monthly-cons');
