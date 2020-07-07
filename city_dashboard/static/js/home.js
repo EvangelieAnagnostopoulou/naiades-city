@@ -101,7 +101,7 @@ $(function () {
                 .append($(`<div class="prop-value">${meter.meter_number}</div>`))
                 .append($(`<div class="prop-label">Type</div>`))
                 .append($(`<div class="prop-value">${meter.activity}</div>`))
-                .append($(`<a href="/details?id=${meter.meter_number}" class="action">More Details</a>`))
+                .append($(`<a href="${URL_PREFIX}/details?id=${meter.meter_number}" class="action">More Details</a>`))
                 .append($(`<button class="btn btn-primary btn-sm action btn--first"><i class="fa fa-chart-line"></i> Show daily data</button>`)
                     .on("click", function() {
                         that.showMeterChart(meter)
