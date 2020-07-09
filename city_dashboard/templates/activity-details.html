@@ -21,7 +21,7 @@
                   </button>
 
             {% if activity in 'Public Garden,Font,Municipal office,Municipal Sport facility,School,Fire Hydrant,Irrigation hydrant, Hydrant,House,Other Sport facility'  %}
-                <a href="{% url 'list' %}?id={{ id }}">
+                <a href="{% url 'list' %}?activity={{ activity }}">
                     <span class="btn btn-sm btn-secondary float-sm-right">View all</span>
                 </a>
             {% endif %}

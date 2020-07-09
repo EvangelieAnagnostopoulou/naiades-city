@@ -102,9 +102,9 @@
                             .text(meter.name)
                         )
                         .append($('<td />')
-                            .text(weeklyConsumptionsByMeterNumber[meter.meter_number]
-                                .toLocaleString('en-US', {maximumFractionDigits:0})
-                                || '0'
+                            .text(
+                                (weeklyConsumptionsByMeterNumber[meter.meter_number] || 0)
+                                    .toLocaleString('en-US', {maximumFractionDigits:0})
                             )
                         )
                         .append($('<td />')
