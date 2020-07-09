@@ -112,7 +112,7 @@
                         )
                         .append($('<td />')
                             .append($('<a />')
-                                .attr('href', `${URL_PREFIX}details?id=${meter.meter_number}`)
+                                .attr('href', `/${URL_PREFIX}details?id=${meter.meter_number}`)
                                 .append($('<i />')
                                     .addClass('fa fa-search')
                                 )
@@ -136,12 +136,12 @@
             $tbody.empty();
 
             $.get({
-                url: `${URL_PREFIX}api/meter-infos/${params}`,
+                url: `/${URL_PREFIX}api/meter-infos/${params}`,
                 success: function(data) {
                     const meters = data.meters;
 
                     $.get({
-                        url: `${URL_PREFIX}api/weekly-total`,
+                        url: `/${URL_PREFIX}api/weekly-total`,
                         success: function(response) {
                             updateUI(meters, response.data);
                         }
