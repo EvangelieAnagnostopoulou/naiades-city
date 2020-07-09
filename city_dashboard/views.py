@@ -39,19 +39,21 @@ def activity_details(request):
     return render(request, 'activity-details.html', params)
 
 
-def list(request):
-    id = request.GET.get('id')
+def list_meters(request):
+    q = request.GET.get('q')
+    activity = request.GET.get('activity')
+
     return render(request, 'list.html', {
         'URL_PREFIX': URL_PREFIX,
-        'ACTIVITY_TYPES': ACTIVITY_TYPES,
-        'id': id,
+        'q': q,
+        'activity': activity,
     })
 
 
-def get_from_dashboard(metric, params=None):
+def get_from_dashboard(metric, endpoint='measurements/data', params=None):
     return JsonResponse(
         requests.
-            get(f"{NAIADES_API}/measurements/data?metric={metric}{params or ''}").
+            get(f"{NAIADES_API}/{endpoint}?metric={metric}{params or ''}").
             json()
     )
 
@@ -86,3 +88,13 @@ def api_average_consumption(request):
         params = f'&activity={request.GET["activity"]}'
 
     return get_from_dashboard(metric='avg_daily_consumption', params=params)
+
+
+def api_meter_infos(request):
+    params = ''
+
+    for param in ["activity", "q"]:
+        if request.GET.get(param):
+            params = f'&{param}={request.GET[param]}'
+
+    return get_from_dashboard(metric='', endpoint='meters', params=params)
