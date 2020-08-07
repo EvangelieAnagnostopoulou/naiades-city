@@ -4,6 +4,8 @@
 
 {% block css %}
     <link rel="stylesheet" href="{% static 'css/home.css' %}?v=20200614.1">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
+
 {% endblock %}
 
 {% block content %}
@@ -82,6 +84,7 @@
 {% endblock %}
 
 {% block js %}
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
     <script>
         const URL_PREFIX = '{{ URL_PREFIX }}';
         $(function() {
@@ -144,6 +147,8 @@
                         url: `/${URL_PREFIX}api/weekly-total`,
                         success: function(response) {
                             updateUI(meters, response.data);
+                            $('#meter-info-table').DataTable();
+
                         }
                     });
 

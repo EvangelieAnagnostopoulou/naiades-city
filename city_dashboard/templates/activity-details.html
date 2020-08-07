@@ -11,18 +11,18 @@
     <div class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
-          <div class="col-sm-6">
+          <div class="col-sm-4">
             <h1 class="m-0 text-dark">{{ name }}</h1>
-          </div><!-- /.col -->
-          <div class="col-sm-6">
+          </div>
+          <div class="col-sm-3">
 
-            <button type="button" class="btn btn-sm btn-secondary float-right" style="margin-left: 10px;" onclick="exportReport();">
+            <button type="button" class="btn btn-sm btn-secondary" style="margin-left: 10px;" onclick="exportReport();">
                     <i class="fas fa-download"></i>
                   </button>
 
-            {% if activity in 'Public Garden,Font,Municipal office,Municipal Sport facility,School,Fire Hydrant,Irrigation hydrant, Hydrant,House,Other Sport facility'  %}
+            {% if activity in 'Public Garden,Font,Municipal offices,Municipal Sport facility,School,Fire Hydrant,Irrigation hydrant, Hydrant,House,Other Sport facility'  %}
                 <a href="{% url 'list' %}?activity={{ activity }}">
-                    <span class="btn btn-sm btn-secondary float-sm-right">View all</span>
+                    <span class="btn btn-sm btn-secondary">View all</span>
                 </a>
             {% endif %}
               <!--<ol class="breadcrumb float-sm-right">
