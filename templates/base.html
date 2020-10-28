@@ -67,7 +67,7 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="/" class="brand-link" style="margin-bottom: 1rem;">
+    <a href="{{ URL_PREFIX }}/" class="brand-link" style="margin-bottom: 1rem;">
       <img src="{% static 'dist/img/logo2.png' %}" class="brand-image img-circle elevation-3"
            style="opacity: .8">
       <span class="brand-text font-weight-light">City Dashboard</span>
@@ -91,7 +91,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="/" class="nav-link{% if request.path == '/' %} active{% endif %}">
+            <a href="{{ URL_PREFIX }}/" class="nav-link{% if request.path == '/' %} active{% endif %}">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -121,13 +121,13 @@
             </ul> -->
           </li>
           <li class="nav-item">
-            <a href="details?id=Public Garden" class="nav-link{% if request.path == '/details' and request.GET.id == 'Public Garden' %} active{% endif %}">
+            <a href="{{ URL_PREFIX }}/details?id=Public Garden" class="nav-link{% if request.path == '/details' and request.GET.id == 'Public Garden' %} active{% endif %}">
               <i class="nav-icon fas fa-tree"></i>
                   <p>Public Gardens</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="details?id=Font" class="nav-link{% if request.path == '/details' and request.GET.id == 'Font' %} active{% endif %}">
+            <a href="{{ URL_PREFIX }}/details?id=Font" class="nav-link{% if request.path == '/details' and request.GET.id == 'Font' %} active{% endif %}">
               <i class="nav-icon fas fa-tint"></i>
               <p>
                 Fonts
@@ -135,7 +135,7 @@
             </a>
           </li>
            <li class="nav-item">
-            <a href="details?id=Municipal Office" class="nav-link{% if request.path == '/details' and request.GET.id == 'Municipal Office' %} active{% endif %}">
+            <a href="{{ URL_PREFIX }}/details?id=Municipal Office" class="nav-link{% if request.path == '/details' and request.GET.id == 'Municipal Office' %} active{% endif %}">
               <i class="far fa-building nav-icon"></i>
               <p>
                 Municipal offices
@@ -143,7 +143,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="details?id=Municipal Sport Facility" class="nav-link{% if request.path == '/details' and request.GET.id == 'Municipal Sport Facility' %} active{% endif %}">
+            <a href="{{ URL_PREFIX }}/details?id=Municipal Sport Facility" class="nav-link{% if request.path == '/details' and request.GET.id == 'Municipal Sport Facility' %} active{% endif %}">
               <i class="fas fa-running nav-icon"></i>
               <p>
                 Municipal Sport facilities
@@ -151,7 +151,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="details?id=School" class="nav-link{% if request.path == '/details' and request.GET.id == 'School' %} active{% endif %}">
+            <a href="{{ URL_PREFIX }}/details?id=School" class="nav-link{% if request.path == '/details' and request.GET.id == 'School' %} active{% endif %}">
               <i class="fas fa-school nav-icon"></i>
               <p>
                 Schools
@@ -159,13 +159,13 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="details?id=Fire Hydrant" class="nav-link{% if request.path == '/details' and request.GET.id == 'Fire Hydrant' %} active{% endif %}">
+            <a href="{{ URL_PREFIX }}/details?id=Fire Hydrant" class="nav-link{% if request.path == '/details' and request.GET.id == 'Fire Hydrant' %} active{% endif %}">
               <i class="fas fa-fire-alt nav-icon"></i>
               <p>Fire Hydrants</p>
             </a>
           </li>
            <li class="nav-item">
-            <a href="details?id=Irrigation Hydrant" class="nav-link{% if request.path == '/details' and request.GET.id == 'Irrigation Hydrant' %} active{% endif %}">
+            <a href="{{ URL_PREFIX }}/details?id=Irrigation Hydrant" class="nav-link{% if request.path == '/details' and request.GET.id == 'Irrigation Hydrant' %} active{% endif %}">
               <i class="fas fa-tape nav-icon"></i>
               <p>Irrigation hydrants</p>
             </a>
@@ -177,13 +177,13 @@
             </a>
           </li>-->
            <li class="nav-item">
-            <a href="details?id=House" class="nav-link{% if request.path == '/details' and request.GET.id == 'House' %} active{% endif %}">
+            <a href="{{ URL_PREFIX }}/details?id=House" class="nav-link{% if request.path == '/details' and request.GET.id == 'House' %} active{% endif %}">
               <i class="fas fa-home nav-icon"></i>
               <p>Houses</p>
             </a>
           </li>
            <li class="nav-item">
-            <a href="details?id=Other Sport Facility" class="nav-link{% if request.path == '/details' and request.GET.id == 'Other Sport Facility' %} active{% endif %}">
+            <a href="{{ URL_PREFIX }}/details?id=Other Sport Facility" class="nav-link{% if request.path == '/details' and request.GET.id == 'Other Sport Facility' %} active{% endif %}">
               <i class="fas fa-skating nav-icon"></i>
               <p>Other Sport facilities</p>
             </a>
