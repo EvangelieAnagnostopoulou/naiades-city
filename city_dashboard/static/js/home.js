@@ -119,14 +119,17 @@ $(function () {
             const map = this.map;
 
             // get max consumption
-            const maxConsumption = this.getMaxConsumption();
+            const cappedMaxConsumption = 200000;
+            const maxConsumption = Math.min(this.getMaxConsumption(), cappedMaxConsumption);
 
             const that = this;
             $.each(this.measurements, function(idx, measurement) {
                 const meter = measurement.meter;
 
                 // calculate color
-                const color = getGreenRedScaleColor(measurement.totalConsumption / maxConsumption);
+                const color = getGreenRedScaleColor(
+                    Math.min(measurement.totalConsumption, cappedMaxConsumption) / maxConsumption
+                );
 
                 // create point
                 measurement.point = L.circle([meter.latitude, meter.longitude], {
