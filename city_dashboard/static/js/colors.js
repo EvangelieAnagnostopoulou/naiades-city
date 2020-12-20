@@ -18,6 +18,10 @@ const getColorBetween = function(fromColor, toColor, ratio) {
 };
 
 const getGreenRedScaleColor = function(ratio) {
+    // if (ratio === 0) {
+    //     return '#999';
+    // }
+
     if (ratio < 0.5) {
         return getColorBetween('#04D215', '#ffdb01', ratio * 2)
     } else {
