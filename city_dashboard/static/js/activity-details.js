@@ -224,7 +224,7 @@ $(function() {
     const updateIndicators = function(dailyConsumptions) {
         // get current date
         const now = new Date();
-        const today = window.FIXED_DATE || new Date(now.year, now.month, now.date);
+        const today = window.FIXED_DATE || new Date(now.getFullYear(), now.getMonth(), now.getDate());
 
         // calculate various stats
         const dayStats = getRangeStats(dailyConsumptions, today, 1);
