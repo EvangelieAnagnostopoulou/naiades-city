@@ -114,6 +114,150 @@ $(function() {
         });
     };
 
+    const getConsumptionByDate = function(hourlyData) {
+        const dailyConsumptions = [];
+        let current = null;
+
+        $.each(hourlyData, function(idx, datum) {
+            if ((current == null) || (current.date.getDate() !== datum.mday)) {
+                if (current) {
+                    dailyConsumptions.push(current);
+                }
+
+                current = {
+                    "date": new Date(datum.year, datum.month - 1, datum.mday),
+                    "consumption": 0
+                };
+            }
+
+            current.consumption += Number(datum.total_consumption);
+        });
+
+        // add current if not null
+        if (current) {
+            dailyConsumptions.push(current);
+        }
+
+        return dailyConsumptions;
+    };
+
+    const calculateTotal = function(dailyConsumptions, from, to) {
+        // calculate total consumption in range
+        return dailyConsumptions
+            .filter(c => (c.date.getTime() >= from.getTime()) && (c.date.getTime() < to.getTime()))
+            .map(c => c.consumption)
+            .reduce((a, b) => a + b, 0)
+    };
+
+    const setPercentage = function($elem, diff) {
+        $elem.empty();
+
+        // add up, left or down icon & set color
+        if (diff < 0) {
+            $elem
+                .addClass('text-success')
+                .append(
+                    $('<i class="fas fa-arrow-down"></i>')
+                );
+        }
+        else if (diff > 0) {
+            $elem
+                .addClass('text-danger')
+                .append(
+                    $('<i class="fas fa-arrow-up"></i>')
+                );
+        }
+        else {
+            $elem
+                .addClass('text-warning')
+                .append(
+                    $('<i class="fas fa-caret-left"></i>')
+                );
+        }
+
+        // set text
+        $elem
+            .append($('<span />')
+                .text(`${Math.abs(Math.round(diff * 100))}%`)
+            )
+    };
+
+    const calculatePercentage = function(current, previous) {
+        const percentage = (current - previous) / previous;
+
+        if (isNaN(percentage) || (!isFinite(percentage))) {
+            return 0;
+        }
+
+        return percentage;
+    };
+
+    const getRangeStats = function(dailyConsumptions, today, range) {
+        // util to get date
+        const getDateBeforeToday = nDays => new Date(today.getTime() - (nDays * 24 * 60 * 60 * 1000));
+
+        // get total in this period
+        const currentPeriodTotal = calculateTotal(
+            dailyConsumptions,
+            getDateBeforeToday(range),
+            today
+        );
+
+        // get total in preceding period
+        const previousPeriodTotal = calculateTotal(
+            dailyConsumptions,
+            getDateBeforeToday(range * 2),
+            getDateBeforeToday(range)
+        );
+
+        // calculate difference percentage
+        const diff = calculatePercentage(currentPeriodTotal, previousPeriodTotal);
+
+        // return stats
+        return {
+            current: currentPeriodTotal,
+            previous: previousPeriodTotal,
+            diff: diff
+        }
+    };
+
+    const updateIndicators = function(dailyConsumptions) {
+        // get current date
+        const now = new Date();
+        const today = window.FIXED_DATE || new Date(now.year, now.month, now.date);
+
+        // calculate various stats
+        const dayStats = getRangeStats(dailyConsumptions, today, 1);
+        const weekStats = getRangeStats(dailyConsumptions, today, 7);
+        const monthStats = getRangeStats(dailyConsumptions, today, 30);
+        const yearStats = getRangeStats(dailyConsumptions, today, 365);
+
+        /* Update UI */
+        const updateUI = function($container, value, diff) {
+            // set raw value
+            $container
+                .find('.value')
+                .text(Math.round(value).toLocaleString('en-US'));
+
+            // set percentage change
+            setPercentage($container.find('.percentage'), diff);
+        };
+
+        // daily
+        updateUI($('#footer-val-daily'), dayStats.current, dayStats.diff);
+
+        // weekly - content & footer
+        updateUI($('#content-week-info'), weekStats.current, weekStats.diff);
+        updateUI($('#footer-val-weekly'), weekStats.current, weekStats.diff);
+
+        // monthly - content & footer
+        updateUI($('#content-month-info'), monthStats.current, monthStats.diff);
+        updateUI($('#footer-val-monthly'), monthStats.current, monthStats.diff);
+
+        // yearly
+        updateUI($('#footer-val-yearly'), yearStats.current, yearStats.diff);
+    };
+
     const loadMonthly = function() {
         const yearConsumptionUrl = `/${URL_PREFIX}api/consumption/?${ENTITY.type}=${ENTITY.value}&days=365`;
 
@@ -229,28 +373,10 @@ $(function() {
         $.ajax({
             url: yearConsumptionUrl,
             success: function (thisYear) {
-                // show consumption by date
-                const dailyConsumptions = [];
-                let current = null;
+                // calculate consumption by date
+                const dailyConsumptions = getConsumptionByDate(thisYear.data);
 
-                $.each(thisYear.data, function(idx, datum) {
-                    if ((current == null) || (current.date.getDate() != datum.mday)) {
-                        if (current) {
-                            dailyConsumptions.push(current);
-                        }
-
-                        current = {
-                            "date": new Date(datum.year, datum.month - 1, datum.mday),
-                            "consumption": 0
-                        };
-                    }
-
-                    current.consumption += Number(datum.total_consumption);
-                });
-
-                dailyConsumptions.push(current);
-
-                console.log(dailyConsumptions);
+                // show daily chart for entire year
                 showYearDailyChart(dailyConsumptions);
 
                 // get last year's data
@@ -297,6 +423,13 @@ $(function() {
 
                         // show chart
                         showYearlyChart(chartData);
+
+                        // update indicators based on current & last year's daily data
+                        updateIndicators(
+                            dailyConsumptions.concat(
+                                getConsumptionByDate(lastYear.data)
+                            )
+                        );
                     }
                 })
             }

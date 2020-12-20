@@ -3,7 +3,7 @@ from django.http import JsonResponse
 from django.shortcuts import render
 
 from city_dashboard.lists import ACTIVITY_TYPES
-from project.settings import NAIADES_API, URL_PREFIX
+from project.settings import NAIADES_API, URL_PREFIX, FIXED_DATE
 
 
 def home(request):
@@ -20,6 +20,7 @@ def activity_details(request):
     params = {
         'URL_PREFIX': URL_PREFIX,
         'ACTIVITY_TYPES': ACTIVITY_TYPES,
+        'FIXED_DATE': FIXED_DATE,
     }
 
     try:

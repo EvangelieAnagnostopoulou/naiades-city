@@ -44,16 +44,14 @@
                   <h3 class="card-title">Water Consumption</h3>
                 </div>
               </div>
-              <div class="card-body">
+              <div class="card-body" id="content-week-info">
                 <div class="d-flex">
                   <p class="d-flex flex-column">
-                    <span class="text-bold text-lg">820 m<sup>3</sup></span>
-                    <span>Water Consumption Over Time</span>
+                      <span class="text-bold text-lg"><span class="value"></span> m<sup>3</sup></span>
+                        <span>Water Consumption this week</span>
                   </p>
                   <p class="ml-auto d-flex flex-column text-right">
-                    <span class="text-success">
-                      <i class="fas fa-arrow-up"></i> 12.5%
-                    </span>
+                    <span class="percentage"></span>
                     <span class="text-muted">Since last week</span>
                   </p>
                 </div>
@@ -86,16 +84,14 @@
                   <h3 class="card-title">Monthly Water Consumption</h3>
                 </div>
               </div>
-              <div class="card-body">
+              <div class="card-body" id="content-month-info">
                 <div class="d-flex">
                   <p class="d-flex flex-column">
-                    <span class="text-bold text-lg">3200 m<sup>3</sup></span>
+                    <span class="text-bold text-lg"><span class="value"></span> m<sup>3</sup></span>
                     <span>Monthly Water Consumption Over Time</span>
                   </p>
                   <p class="ml-auto d-flex flex-column text-right">
-                    <span class="text-success">
-                      <i class="fas fa-arrow-up"></i> 33.1%
-                    </span>
+                    <span class="percentage"></span>
                     <span class="text-muted">Since last month</span>
                   </p>
                 </div>
@@ -161,37 +157,37 @@
               <!-- ./card-body -->
               <div class="card-footer">
                 <div class="row">
-                  <div class="col-sm-3 col-6">
+                  <div class="col-sm-3 col-6" id="footer-val-daily">
                     <div class="description-block border-right">
-                      <span class="description-percentage text-success"><i class="fas fa-caret-up"></i> 17%</span>
-                      <h5 class="description-header">10 m<sup>3</sup></h5>
+                      <span class="percentage description-percentage"></span>
+                      <h5 class="description-header"><span class="value"></span> m<sup>3</sup></h5>
                       <span class="description-text">DAILY CONSUMPTION</span>
                     </div>
                     <!-- /.description-block -->
                   </div>
                   <!-- /.col -->
-                  <div class="col-sm-3 col-6">
+                  <div class="col-sm-3 col-6" id="footer-val-weekly">
                     <div class="description-block border-right">
-                      <span class="description-percentage text-warning"><i class="fas fa-caret-left"></i> 0%</span>
-                      <h5 class="description-header">50 m<sup>3</sup></h5>
+                      <span class="percentage description-percentage"></span>
+                        <h5 class="description-header"><span class="value"></span> m<sup>3</sup></h5>
                       <span class="description-text">WEEKLY CONSUMPTION</span>
                     </div>
                     <!-- /.description-block -->
                   </div>
                   <!-- /.col -->
-                  <div class="col-sm-3 col-6">
+                  <div class="col-sm-3 col-6" id="footer-val-monthly">
                     <div class="description-block border-right">
-                      <span class="description-percentage text-success"><i class="fas fa-caret-up"></i> 20%</span>
-                      <h5 class="description-header">200 m<sup>3</sup></h5>
+                      <span class="percentage description-percentage"></span>
+                      <h5 class="description-header"><span class="value"></span> m<sup>3</sup></h5>
                       <span class="description-text">MONTHLY CONSUMPTION</span>
                     </div>
                     <!-- /.description-block -->
                   </div>
                   <!-- /.col -->
-                  <div class="col-sm-3 col-6">
+                  <div class="col-sm-3 col-6" id="footer-val-yearly">
                     <div class="description-block">
-                      <span class="description-percentage text-danger"><i class="fas fa-caret-down"></i> 18%</span>
-                      <h5 class="description-header">1200 m<sup>3</sup></h5>
+                      <span class="percentage description-percentage"></span>
+                      <h5 class="description-header"><span class="value"></span> m<sup>3</sup></h5>
                       <span class="description-text">YEARLY CONSUMPTION</span>
                     </div>
                     <!-- /.description-block -->
@@ -208,10 +204,6 @@
           </div>
           <!-- /.col-md-6 -->
         </div>
-        <!-- /.row -->
-      </div>
-      <!-- /.container-fluid -->
-    </div>
 
 {% endblock %}
 
@@ -230,10 +222,14 @@
                 value: '{{ meter_number }}'
             };
         {% endif %}
+
+        {% if FIXED_DATE %}
+            window.FIXED_DATE = new Date({{ FIXED_DATE.year }}, {{ FIXED_DATE.month|add:-1 }}, {{ FIXED_DATE.day }});
+        {% endif %}
     </script>
     <script src="{% static 'js/colors.js' %}"></script>
     <script src="{% static 'js/home-charts.js' %}?v=20200614.1"></script>
-    <script src="{% static 'js/activity-details.js' %}?v=20200614.1"></script>
+    <script src="{% static 'js/activity-details.js' %}?v=20201220.1"></script>
     <script src="{% static 'js/home.js' %}?v=20200614.1"></script>
     <script src="{% static 'js/report.js' %}?v=20200615.1"></script>
 {% endblock %}

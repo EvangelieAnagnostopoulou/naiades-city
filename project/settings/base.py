@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+from datetime import datetime
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 TESTING = False
 
@@ -136,6 +138,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+# Naiades API & API settings
 NAIADES_API = os.environ.get("NAIADES_API", "http://127.0.0.1:8000/api")
 
-
+if os.environ.get("FIXED_DATE"):
+    FIXED_DATE = datetime.strptime(os.environ.get("FIXED_DATE"), '%Y-%m-%d')
+else:
+    FIXED_DATE = None
