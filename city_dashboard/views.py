@@ -99,3 +99,7 @@ def api_meter_infos(request):
             params = f'&{param}={request.GET[param]}'
 
     return get_from_dashboard(metric='', endpoint='meters', params=params)
+
+
+def api_yearly_change_by_activity(request):
+    return get_from_dashboard(metric='yearly_change_by_activity')

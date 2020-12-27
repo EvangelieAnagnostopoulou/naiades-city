@@ -9,6 +9,7 @@ $(function () {
                     maxZoom: 18,
                     id: 'mapbox/streets-v11',
                     tileSize: 512,
+                    tileSize: 512,
                     zoomOffset: -1,
                     accessToken: 'pk.eyJ1IjoiZXZhbmdlbGllOTAiLCJhIjoiY2thanU1YzFrMGU5MDJ6anVtY3FpdDQwaiJ9.G5trmcJe4LgebhQxVzgVMw'
                 }
