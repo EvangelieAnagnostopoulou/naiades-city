@@ -110,7 +110,7 @@ $(function() {
                     .addClass('nav-item')
                     .append(
                         $('<a />')
-                            .attr('href', `/details?id=${encodeURIComponent(datum.activity)}`)
+                            .attr('href', `/${URL_PREFIX}details?id=${encodeURIComponent(datum.activity)}`)
                             .addClass('nav-link')
                             .append($('<span />').text(datum.activity))
                             .append($('<span />')
@@ -122,8 +122,8 @@ $(function() {
                                 )
                             )
                     )
-            )
-        })
+            );
+        });
     };
 
     const loadYearlyActivityData = function() {
