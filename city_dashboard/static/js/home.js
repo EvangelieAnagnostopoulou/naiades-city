@@ -9,7 +9,6 @@ $(function () {
                     maxZoom: 18,
                     id: 'mapbox/streets-v11',
                     tileSize: 512,
-                    tileSize: 512,
                     zoomOffset: -1,
                     accessToken: 'pk.eyJ1IjoiZXZhbmdlbGllOTAiLCJhIjoiY2thanU1YzFrMGU5MDJ6anVtY3FpdDQwaiJ9.G5trmcJe4LgebhQxVzgVMw'
                 }
@@ -132,23 +131,32 @@ $(function () {
                     Math.min(measurement.totalConsumption, cappedMaxConsumption) / maxConsumption
                 );
 
-                // create point
-                measurement.point = L.circle([meter.latitude, meter.longitude], {
+                // set point style
+                const pointOptions = {
                     color: color,
                     fillColor: color,
                     fillOpacity: 0.5,
                     radius: 20
-                }).addTo(map).on("click", function(e) {
-                    const clickedCircle = e.target;
-                    const consumption = measurement
-                        .totalConsumption
-                        .toLocaleString('en-US', {maximumFractionDigits:0});
+                };
 
-                    clickedCircle
-                        .bindPopup(that.getPopupContent(meter, consumption))
-                        .openPopup();
-                });
+                // mark points with no address as dotted
+                if (!meter.address) {
+                    pointOptions.dashArray = "4 4";
+                }
 
+                // create point
+                measurement.point = L
+                    .circle([meter.latitude, meter.longitude], pointOptions)
+                    .addTo(map).on("click", function(e) {
+                        const clickedCircle = e.target;
+                        const consumption = measurement
+                            .totalConsumption
+                            .toLocaleString('en-US', {maximumFractionDigits:0});
+
+                        clickedCircle
+                            .bindPopup(that.getPopupContent(meter, consumption))
+                            .openPopup();
+                    });
             });
         },
 
