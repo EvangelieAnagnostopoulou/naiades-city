@@ -147,8 +147,11 @@
                         url: `/${URL_PREFIX}api/weekly-total`,
                         success: function(response) {
                             updateUI(meters, response.data);
-                            $('#meter-info-table').DataTable();
 
+                            // enable datatables
+                            $('#meter-info-table').DataTable({
+                                "order": [[ 1, "desc" ]]
+                            });
                         }
                     });
 

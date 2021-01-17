@@ -33,6 +33,11 @@ $(function() {
                     "axisAlpha": 1,
                     "position": "left"
                 }],
+                "numberFormatter": {
+                    "precision": 2,
+                    "decimalSeparator": ".",
+                    "thousandsSeparator": ","
+                },
                 "graphs": [{
                     "valueAxis": "v1",
                     "lineColor": "#007bff",
@@ -274,6 +279,11 @@ $(function() {
                 "gridPosition": "start",
                 "position": "left"
               },
+              "numberFormatter": {
+                "precision": 2,
+                "decimalSeparator": ".",
+                "thousandsSeparator": ","
+              },
               "trendLines": [],
               "graphs": [
                 {
@@ -347,6 +357,11 @@ $(function() {
                         "drop":true
                     }
                 }],
+                "numberFormatter": {
+                    "precision": 2,
+                    "decimalSeparator": ".",
+                    "thousandsSeparator": ","
+                },
                 "chartScrollbar": {
                     "autoGridCount": true,
                     "graph": "g1",

@@ -24,7 +24,9 @@ $(function() {
                 "valueWidth": 100
             },
             "numberFormatter": {
-                "precision": 0
+                "precision": -1,
+                "decimalSeparator": ".",
+                "thousandsSeparator": ","
             },
             "innerRadius": "30%",
             "defs": {
