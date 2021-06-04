@@ -117,7 +117,7 @@ LOGIN_REDIRECT_URL = '/'
 APPEND_SLASH = True
 
 # Deployment prefix
-URL_PREFIX = os.environ.get('URL_PREFIX', '')
+URL_PREFIX = os.environ.get('URL_PREFIX', 'city/')
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
