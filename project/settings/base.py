@@ -43,6 +43,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+
     'loginas',
 
     'city_dashboard',
@@ -56,6 +62,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'project.middleware.AuthRequiredMiddleware',
 ]
 
 ROOT_URLCONF = 'project.urls'
@@ -108,16 +115,16 @@ USE_L10N = True
 
 USE_TZ = True
 
-
-# Authentication
-LOGIN_URL = '/login'
-
-LOGIN_REDIRECT_URL = '/'
-
-APPEND_SLASH = True
-
 # Deployment prefix
 URL_PREFIX = os.environ.get('URL_PREFIX', 'city/')
+
+# Authentication
+LOGIN_URL = f'/{URL_PREFIX}login'
+LOGOUT_URL = f'/{URL_PREFIX}logout'
+ADMIN_URL = f'/{URL_PREFIX}admin'
+LOGIN_REDIRECT_URL = f'/{URL_PREFIX}'
+
+APPEND_SLASH = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
@@ -145,3 +152,9 @@ if os.environ.get("FIXED_DATE"):
     FIXED_DATE = datetime.strptime(os.environ.get("FIXED_DATE"), '%Y-%m-%d')
 else:
     FIXED_DATE = None
+
+# KeyRock Authentication
+OAUTH_SERVER_BASEURL = 'http://5.53.108.182:3005'
+ACCOUNT_LOGOUT_REDIRECT_URL = f'/{URL_PREFIX[:-1]}'
+SITE_ID = 1
+ACCOUNT_EMAIL_VERIFICATION = "none"

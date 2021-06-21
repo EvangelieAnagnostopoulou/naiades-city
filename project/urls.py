@@ -16,13 +16,23 @@ Including another URLconf
 
 from django.urls import path, include
 
+import django.contrib.auth.views as auth_views
+
 from django.contrib import admin
 from project.settings import URL_PREFIX
+from project import views
+
 
 urlpatterns = [
     # django admin
     path(f'{URL_PREFIX}admin/', admin.site.urls),
-    path(f'{URL_PREFIX}admin/', include('loginas.urls')),
+
+    # auth
+    path(f'{URL_PREFIX}login/', auth_views.login, name='login'),
+    path(f'{URL_PREFIX}logout/', views.logout, name='logout'),
+
+    # KeyRock
+    path(f'{URL_PREFIX}', include('keyrock.urls')),
 
     # city dashboard
     path(f'{URL_PREFIX}', include('city_dashboard.urls')),

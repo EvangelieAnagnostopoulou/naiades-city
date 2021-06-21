@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+{% load socialaccount %}
+
+{% block css %}
+    <style>
+        .login-panel {
+            border-color: #555;
+        }
+
+        .login-panel .panel-heading {
+            text-align: center;
+            background: #333;
+            border-color: #555;
+            color: white;
+        }
+
+        .login-panel .panel-body {
+            min-height: 200px;
+            text-align: center;
+        }
+
+        .login-panel .panel-body a.btn {
+            margin-top: 70px;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="col-xs-12">
+        <div class="login-panel panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">{% trans "Please login to continue" %}</h3>
+            </div>
+            <div class="panel-body">
+
+                <a class="btn btn-primary"
+                   href="{% provider_login_url "keyrockprovider" next="/city/" action="reauthenticate" %}">
+                    Login with your KeyRock account
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

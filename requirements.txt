@@ -6,6 +6,9 @@ django-loginas
 dj-database-url==0.3.0
 psycopg2-binary
 
+# Allauth
+django-allauth==0.44.0
+
 # Deployment
 gunicorn
 whitenoise==2.0.6
