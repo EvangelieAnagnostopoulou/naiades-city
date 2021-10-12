@@ -154,7 +154,8 @@ else:
     FIXED_DATE = None
 
 # KeyRock Authentication
-OAUTH_SERVER_BASEURL = 'http://5.53.108.182:3005'
+OAUTH_SERVER_BASEURL = 'https://test.naiades-project.eu:3443'
+SOCIALACCOUNT_ADAPTER = 'keyrock.adapter.KeyRockAdapter'
 ACCOUNT_LOGOUT_REDIRECT_URL = f'/{URL_PREFIX[:-1]}'
 SITE_ID = 1
 ACCOUNT_EMAIL_VERIFICATION = "none"
