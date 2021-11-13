@@ -146,7 +146,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Naiades API & API settings
-NAIADES_API = os.environ.get("NAIADES_API", "http://127.0.0.1:8000/api")
+NAIADES_API = os.environ.get("NAIADES_API", "https://dashboard-naiades-dev.herokuapp.com/api")
 
 if os.environ.get("FIXED_DATE"):
     FIXED_DATE = datetime.strptime(os.environ.get("FIXED_DATE"), '%Y-%m-%d')

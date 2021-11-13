@@ -16,7 +16,7 @@ services:
         - DATABASE_NAME=postgres
         - DATABASE_USER=postgres
         - DATABASE_PASSWORD=postgres
-        - NAIADES_API=http://147.102.17.81/api
+        - NAIADES_API=https://dashboard-naiades-dev.herokuapp.com/api
     depends_on:
       - db
   web:
@@ -30,7 +30,7 @@ services:
         - DATABASE_NAME=postgres
         - DATABASE_USER=postgres
         - DATABASE_PASSWORD=postgres
-        - NAIADES_API=http://147.102.17.81/api
+        - NAIADES_API=https://dashboard-naiades-dev.herokuapp.com/api
     depends_on:
       - db
       - migrate
