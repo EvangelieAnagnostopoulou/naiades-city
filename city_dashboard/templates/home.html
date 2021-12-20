@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% load static %}
+{% load i18n %}
 
 {% block css %}
     <link rel="stylesheet" href="{% static 'css/home.css' %}?v=20200614.1">
@@ -13,12 +14,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Dashboard</h1>
+            <h1 class="m-0 text-dark">{% trans "Dashboard" %}</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard v1</li>
+              <li class="breadcrumb-item"><a href="#">{% trans "Home" %}</a></li>
+              <li class="breadcrumb-item active">{% trans "Dashboard v1" %}</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -43,7 +44,7 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h5 class="card-title">Water Consumption</h5>
+                <h5 class="card-title">{%  trans "Water Consumption" %}</h5>
 
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -56,7 +57,7 @@
                 <div class="row">
                   <div class="col-md-12">
                     <p class="text-center">
-                      <strong>Water Consumption</strong>
+                      <strong>{% trans "Water Consumption" %}</strong>
                     </p>
 
                     <div id="home-chart-container">
@@ -85,5 +86,5 @@
     <script src="{% static 'js/colors.js' %}"></script>
     <script src="{% static 'js/home-charts.js' %}?v=20200614.1"></script>
     <script src="{% static 'js/home-activities-charts.js' %}?v=20210117.1"></script>
-    <script src="{% static 'js/home.js' %}?v=20201230.1"></script>
+    <script src="{% static 'js/home.js' %}?v=20211220.1"></script>
 {% endblock %}

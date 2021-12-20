@@ -119,7 +119,7 @@ USE_TZ = True
 URL_PREFIX = os.environ.get('URL_PREFIX', 'city/')
 
 # Authentication
-LOGIN_URL = f'/{URL_PREFIX}login'
+LOGIN_URL = f'/{URL_PREFIX}keyrockprovider/login/'
 LOGOUT_URL = f'/{URL_PREFIX}logout'
 ADMIN_URL = f'/{URL_PREFIX}admin'
 LOGIN_REDIRECT_URL = f'/{URL_PREFIX}'

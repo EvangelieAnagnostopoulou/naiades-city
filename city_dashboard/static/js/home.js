@@ -119,7 +119,7 @@ $(function () {
             const map = this.map;
 
             // get max consumption
-            const cappedMaxConsumption = 100000;
+            const cappedMaxConsumption = 1000;
             const maxConsumption = Math.min(this.getMaxConsumption(), cappedMaxConsumption);
 
             const that = this;

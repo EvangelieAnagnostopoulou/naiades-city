@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% load static %}
+{% load i18n %}
 
 {% block css %}
     <link rel="stylesheet" href="{% static 'css/activity-details.css' %}">
@@ -22,7 +23,7 @@
 
             {% if activity in 'Public Garden,Font,Municipal offices,Municipal Sport facility,School,Fire Hydrant,Irrigation hydrant, Hydrant,House,Other Sport facility'  %}
                 <a href="{% url 'list' %}?activity={{ activity }}">
-                    <span class="btn btn-sm btn-secondary">View all</span>
+                    <span class="btn btn-sm btn-secondary">{% trans "View all" %}</span>
                 </a>
             {% endif %}
               <!--<ol class="breadcrumb float-sm-right">
@@ -41,18 +42,18 @@
             <div class="card">
               <div class="card-header border-0">
                 <div class="d-flex justify-content-between">
-                  <h3 class="card-title">Water Consumption</h3>
+                  <h3 class="card-title">{% trans "Water Consumption" %}</h3>
                 </div>
               </div>
               <div class="card-body" id="content-week-info">
                 <div class="d-flex">
                   <p class="d-flex flex-column">
                       <span class="text-bold text-lg"><span class="value"></span> m<sup>3</sup></span>
-                        <span>Water Consumption this week</span>
+                        <span>{% trans "Water Consumption this week" %}</span>
                   </p>
                   <p class="ml-auto d-flex flex-column text-right">
                     <span class="percentage"></span>
-                    <span class="text-muted">Since last week</span>
+                    <span class="text-muted">{% trans "Since last week" %}</span>
                   </p>
                 </div>
                 <!-- /.d-flex -->
@@ -64,11 +65,11 @@
 
                 <div class="d-flex flex-row justify-content-end">
                   <span class="mr-2">
-                    <i class="fas fa-square text-primary"></i> This Week
+                    <i class="fas fa-square text-primary"></i> {% trans "This Week" %}
                   </span>
 
                   <span>
-                    <i class="fas fa-square text-gray"></i> Last Week
+                    <i class="fas fa-square text-gray"></i> {% trans "Last Week" %}
                   </span>
                 </div>
               </div>
@@ -81,18 +82,18 @@
             <div class="card">
               <div class="card-header border-0">
                 <div class="d-flex justify-content-between">
-                  <h3 class="card-title">Monthly Water Consumption</h3>
+                  <h3 class="card-title">{% trans "Monthly Water Consumption" %}</h3>
                 </div>
               </div>
               <div class="card-body" id="content-month-info">
                 <div class="d-flex">
                   <p class="d-flex flex-column">
                     <span class="text-bold text-lg"><span class="value"></span> m<sup>3</sup></span>
-                    <span>Monthly Water Consumption Over Time</span>
+                    <span>{% trans "Monthly Water Consumption Over Time" %}</span>
                   </p>
                   <p class="ml-auto d-flex flex-column text-right">
                     <span class="percentage"></span>
-                    <span class="text-muted">Since last month</span>
+                    <span class="text-muted">{% trans "Since last month" %}</span>
                   </p>
                 </div>
                 <!-- /.d-flex -->
@@ -103,11 +104,11 @@
 
                 <div class="d-flex flex-row justify-content-end">
                   <span class="mr-2">
-                    <i class="fas fa-square text-primary"></i> This year
+                    <i class="fas fa-square text-primary"></i> {% trans "This year" %}
                   </span>
 
                   <span>
-                    <i class="fas fa-square text-gray"></i> Last year
+                    <i class="fas fa-square text-gray"></i> {% trans "Last year" %}
                   </span>
                 </div>
               </div>
@@ -119,7 +120,7 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h5 class="card-title">Water Consumption Report</h5>
+                <h5 class="card-title">{% trans "Water Consumption Report" %}</h5>
 
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -140,7 +141,7 @@
                 <div class="row">
                   <div class="col-md-12">
                     <p class="text-center">
-                      <strong>Yearly Water Consumption</strong>
+                      <strong>{% trans "Yearly Water Consumption" %}</strong>
                     </p>
                       <div id="chart-yearly-cons" style="width	: 100%;height	: 200px;"></div>
                     <!--<div class="chart"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
@@ -161,7 +162,7 @@
                     <div class="description-block border-right">
                       <span class="percentage description-percentage"></span>
                       <h5 class="description-header"><span class="value"></span> m<sup>3</sup></h5>
-                      <span class="description-text">DAILY CONSUMPTION</span>
+                      <span class="description-text">{% trans "DAILY CONSUMPTION" %}</span>
                     </div>
                     <!-- /.description-block -->
                   </div>
@@ -170,7 +171,7 @@
                     <div class="description-block border-right">
                       <span class="percentage description-percentage"></span>
                         <h5 class="description-header"><span class="value"></span> m<sup>3</sup></h5>
-                      <span class="description-text">WEEKLY CONSUMPTION</span>
+                      <span class="description-text">{% trans "WEEKLY CONSUMPTION" %}</span>
                     </div>
                     <!-- /.description-block -->
                   </div>
@@ -179,7 +180,7 @@
                     <div class="description-block border-right">
                       <span class="percentage description-percentage"></span>
                       <h5 class="description-header"><span class="value"></span> m<sup>3</sup></h5>
-                      <span class="description-text">MONTHLY CONSUMPTION</span>
+                      <span class="description-text">{% trans "MONTHLY CONSUMPTION" %}</span>
                     </div>
                     <!-- /.description-block -->
                   </div>
@@ -188,7 +189,7 @@
                     <div class="description-block">
                       <span class="percentage description-percentage"></span>
                       <h5 class="description-header"><span class="value"></span> m<sup>3</sup></h5>
-                      <span class="description-text">YEARLY CONSUMPTION</span>
+                      <span class="description-text">{% trans "YEARLY CONSUMPTION" %}</span>
                     </div>
                     <!-- /.description-block -->
                   </div>

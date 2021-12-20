@@ -6,7 +6,7 @@ $(function() {
         const formattedData = data.map(datum => ({
             activity: datum.name,
             litres: Number(datum.this_period)
-        })).sort(
+        })).sort(getColorBetween
             (a, b) => a.litres < b.litres ? 1 : -1
         );
 
