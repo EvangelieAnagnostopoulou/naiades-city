@@ -1,0 +1,167 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-05-31 23:42+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\city_dashboard\templates\activity-details.html:26
+msgid "View all"
+msgstr ""
+
+#: .\city_dashboard\templates\activity-details.html:45
+#: .\city_dashboard\templates\home.html:47
+#: .\city_dashboard\templates\home.html:60
+msgid "Water Consumption"
+msgstr ""
+
+#: .\city_dashboard\templates\activity-details.html:52
+msgid "Water Consumption this week"
+msgstr ""
+
+#: .\city_dashboard\templates\activity-details.html:56
+msgid "Since last week"
+msgstr ""
+
+#: .\city_dashboard\templates\activity-details.html:68
+msgid "This Week"
+msgstr ""
+
+#: .\city_dashboard\templates\activity-details.html:72
+msgid "Last Week"
+msgstr ""
+
+#: .\city_dashboard\templates\activity-details.html:85
+msgid "Monthly Water Consumption"
+msgstr ""
+
+#: .\city_dashboard\templates\activity-details.html:92
+msgid "Monthly Water Consumption Over Time"
+msgstr ""
+
+#: .\city_dashboard\templates\activity-details.html:96
+msgid "Since last month"
+msgstr ""
+
+#: .\city_dashboard\templates\activity-details.html:107
+msgid "This year"
+msgstr ""
+
+#: .\city_dashboard\templates\activity-details.html:111
+msgid "Last year"
+msgstr ""
+
+#: .\city_dashboard\templates\activity-details.html:123
+#: .\templates\util\translations.html:20
+msgid "Water Consumption Report"
+msgstr ""
+
+#: .\city_dashboard\templates\activity-details.html:144
+#: .\city_dashboard\templates\home-activities.html:5
+msgid "Yearly Water Consumption"
+msgstr ""
+
+#: .\city_dashboard\templates\activity-details.html:165
+msgid "DAILY CONSUMPTION"
+msgstr ""
+
+#: .\city_dashboard\templates\activity-details.html:174
+msgid "WEEKLY CONSUMPTION"
+msgstr ""
+
+#: .\city_dashboard\templates\activity-details.html:183
+msgid "MONTHLY CONSUMPTION"
+msgstr ""
+
+#: .\city_dashboard\templates\activity-details.html:192
+msgid "YEARLY CONSUMPTION"
+msgstr ""
+
+#: .\city_dashboard\templates\home.html:17
+msgid "Dashboard"
+msgstr "Daseborde"
+
+#: .\city_dashboard\templates\home.html:21
+msgid "Home"
+msgstr ""
+
+#: .\city_dashboard\templates\home.html:22
+msgid "Dashboard v1"
+msgstr ""
+
+#: .\city_dashboard\templates\list.html:37
+msgid "List of Consumption Points"
+msgstr ""
+
+#: .\city_dashboard\templates\list.html:51
+msgid "Consumption Points"
+msgstr ""
+
+#: .\city_dashboard\templates\list.html:52
+msgid "Consumption"
+msgstr ""
+
+#: .\city_dashboard\templates\list.html:53
+msgid "Change"
+msgstr ""
+
+#: .\city_dashboard\templates\list.html:54
+msgid "More"
+msgstr ""
+
+#: .\templates\registration\login.html:34
+msgid "Please login to continue"
+msgstr ""
+
+#: .\templates\util\translations.html:6
+msgid "This week"
+msgstr ""
+
+#: .\templates\util\translations.html:7
+msgid "Last week"
+msgstr ""
+
+#: .\templates\util\translations.html:8
+msgid "This Year"
+msgstr ""
+
+#: .\templates\util\translations.html:9
+msgid "Last Year"
+msgstr ""
+
+#: .\templates\util\translations.html:12
+msgid "Total consumption this week"
+msgstr ""
+
+#: .\templates\util\translations.html:13
+msgid "Meter number"
+msgstr ""
+
+#: .\templates\util\translations.html:14
+msgid "Type"
+msgstr ""
+
+#: .\templates\util\translations.html:15
+msgid "More Details"
+msgstr ""
+
+#: .\templates\util\translations.html:16
+msgid "Show daily data"
+msgstr ""
+
+#: .\templates\util\translations.html:17
+msgid "Add to chart"
+msgstr "Addo de carto"

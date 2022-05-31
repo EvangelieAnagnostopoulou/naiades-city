@@ -59,7 +59,7 @@ function exportReport() {
 
     // Let's add a custom title
     layout.content.push({
-      "text": "Water Consumption Report",
+      "text": window.MESSAGES.report.waterConsumptionReport,
       "fontSize": 15
     });
 

@@ -44,7 +44,7 @@ $(function() {
                     "bullet": "round",
                     "bulletBorderThickness": 1,
                     "hideBulletsCount": 30,
-                    "title": "This week",
+                    "title": window.MESSAGES.activityDetails.thisWeek,
                     "valueField": "this_week",
                 "fillAlphas": 0
                 }, {
@@ -53,7 +53,7 @@ $(function() {
                     "bullet": "square",
                     "bulletBorderThickness": 1,
                     "hideBulletsCount": 30,
-                    "title": "Last week",
+                    "title": window.MESSAGES.activityDetails.lastWeek,
                     "valueField": "last_week",
                 "fillAlphas": 0
                 } ],
@@ -291,7 +291,7 @@ $(function() {
                   "fillAlphas": 0.8,
                   "id": "AmGraph-1",
                   "lineAlpha": 0.2,
-                  "title": "This year",
+                  "title": window.MESSAGES.activityDetails.thisYear,
                   "type": "column",
                   "valueField": "this_year",
                   "lineColor": "#007bff",
@@ -301,7 +301,7 @@ $(function() {
                   "fillAlphas": 0.8,
                   "id": "AmGraph-2",
                   "lineAlpha": 0.2,
-                  "title": "Last year",
+                  "title": window.MESSAGES.activityDetails.lastYear,
                   "type": "column",
                   "valueField": "last_year",
                   "lineColor": "#6c757d",

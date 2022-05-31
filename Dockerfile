@@ -6,4 +6,4 @@ WORKDIR /code
 COPY requirements.txt /code/
 RUN pip install -r requirements.txt
 COPY . /code/
-RUN python manage.py compilemessages --locale=fr
+RUN python manage.py compilemessages --locale=es

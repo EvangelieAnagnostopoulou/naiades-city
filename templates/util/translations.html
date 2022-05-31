@@ -1,0 +1,23 @@
+{% load i18n %}
+
+<script>
+    window.MESSAGES = {
+        activityDetails: {
+            thisWeek: "{% trans 'This week' %}",
+            lastWeek: "{% trans 'Last week' %}",
+            thisYear: "{% trans 'This Year' %}",
+            lastYear: "{% trans 'Last Year' %}"
+        },
+        home: {
+            totalConsumptionThisWeek: "{% trans 'Total consumption this week' %}",
+            meterNumber: "{% trans 'Meter number' %}",
+            type: "{% trans 'Type' %}",
+            moreDetails: "{% trans 'More Details' %}",
+            showDailyData: "{% trans 'Show daily data' %}",
+            addToChart: "{% trans 'Add to chart' %}"
+        },
+        report: {
+            waterConsumptionReport: "{% trans 'Water Consumption Report' %}"
+        }
+    };
+</script>

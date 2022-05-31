@@ -37,6 +37,8 @@
             display: none !important;
         }
     </style>
+  <!-- Base app style -->
+  <link rel="stylesheet" href="{% static 'css/base.css' %}">
   {% block css %}{% endblock %}
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -54,7 +56,7 @@
       </li>
       <!--<li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contact</a>-->
-      </li>
+{#      </li>#}
     </ul>
 
     <!-- SEARCH FORM -->
@@ -68,6 +70,7 @@
         </div>
       </div>
     </form>
+        {% include 'util/language-picker.html' %}
 
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
@@ -275,7 +278,7 @@
 <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
 <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
 <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
-
+{% include "util/translations.html" %}
 {% block js %}{% endblock %}
 </body>
 </html>

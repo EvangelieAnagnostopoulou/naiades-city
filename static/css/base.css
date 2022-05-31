@@ -1,0 +1,31 @@
+/* Language picker */
+#language-picker {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+#language-picker > form {
+    display: inline-block;
+}
+
+#language-picker > form > button {
+    background-color: #f2f4f6;
+    border-color: #f2f4f6;
+    color: #495057;
+}
+
+#language-picker > form > button.btn-primary {
+    background-color: #f2f4f6;
+    border-color: #f2f4f6;
+    color: #343a40;
+    font-weight: 700;
+}
+
+#user-dropdown-main {
+    padding: 10px 0 0 0;
+}
+
+#user-dropdown-main > li {
+    padding: 5px 6px;
+    font-size: 13px;
+}

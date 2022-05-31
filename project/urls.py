@@ -24,6 +24,9 @@ from project import views
 
 
 urlpatterns = [
+    # i18n
+    path(f'{URL_PREFIX}i18n/', include('django.conf.urls.i18n')),
+
     # django admin
     path(f'{URL_PREFIX}admin/', admin.site.urls),
 
