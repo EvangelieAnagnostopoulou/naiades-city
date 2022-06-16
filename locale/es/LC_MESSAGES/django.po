@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-31 23:42+0300\n"
+"POT-Creation-Date: 2022-06-07 11:38+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,75 +20,75 @@ msgstr ""
 
 #: .\city_dashboard\templates\activity-details.html:26
 msgid "View all"
-msgstr ""
+msgstr "Ver todo"
 
 #: .\city_dashboard\templates\activity-details.html:45
 #: .\city_dashboard\templates\home.html:47
 #: .\city_dashboard\templates\home.html:60
 msgid "Water Consumption"
-msgstr ""
+msgstr "Consumo de agua"
 
 #: .\city_dashboard\templates\activity-details.html:52
 msgid "Water Consumption this week"
-msgstr ""
+msgstr "Consumo de agua esta semana"
 
 #: .\city_dashboard\templates\activity-details.html:56
 msgid "Since last week"
-msgstr ""
+msgstr "Desde la semana pasada"
 
 #: .\city_dashboard\templates\activity-details.html:68
 msgid "This Week"
-msgstr ""
+msgstr "Esta semana"
 
 #: .\city_dashboard\templates\activity-details.html:72
 msgid "Last Week"
-msgstr ""
+msgstr "La semana pasada"
 
 #: .\city_dashboard\templates\activity-details.html:85
 msgid "Monthly Water Consumption"
-msgstr ""
+msgstr "Consumo mensual de agua"
 
 #: .\city_dashboard\templates\activity-details.html:92
 msgid "Monthly Water Consumption Over Time"
-msgstr ""
+msgstr "Consumo mensual de agua a lo largo del tiempo"
 
 #: .\city_dashboard\templates\activity-details.html:96
 msgid "Since last month"
-msgstr ""
+msgstr "Desde el mes pasado"
 
 #: .\city_dashboard\templates\activity-details.html:107
 msgid "This year"
-msgstr ""
+msgstr "Este año"
 
 #: .\city_dashboard\templates\activity-details.html:111
 msgid "Last year"
-msgstr ""
+msgstr "El año pasado"
 
 #: .\city_dashboard\templates\activity-details.html:123
 #: .\templates\util\translations.html:20
 msgid "Water Consumption Report"
-msgstr ""
+msgstr "Informe sobre el consumo de agua"
 
 #: .\city_dashboard\templates\activity-details.html:144
 #: .\city_dashboard\templates\home-activities.html:5
 msgid "Yearly Water Consumption"
-msgstr ""
+msgstr "Consumo anual"
 
 #: .\city_dashboard\templates\activity-details.html:165
 msgid "DAILY CONSUMPTION"
-msgstr ""
+msgstr "CONSUMO DIARIO"
 
 #: .\city_dashboard\templates\activity-details.html:174
 msgid "WEEKLY CONSUMPTION"
-msgstr ""
+msgstr "CONSUMO SEMANAL"
 
 #: .\city_dashboard\templates\activity-details.html:183
 msgid "MONTHLY CONSUMPTION"
-msgstr ""
+msgstr "CONSUMO MENSUAL"
 
 #: .\city_dashboard\templates\activity-details.html:192
 msgid "YEARLY CONSUMPTION"
-msgstr ""
+msgstr "CONSUMO ANUAL"
 
 #: .\city_dashboard\templates\home.html:17
 msgid "Dashboard"
@@ -96,72 +96,72 @@ msgstr "Daseborde"
 
 #: .\city_dashboard\templates\home.html:21
 msgid "Home"
-msgstr ""
+msgstr "Inicio"
 
 #: .\city_dashboard\templates\home.html:22
 msgid "Dashboard v1"
-msgstr ""
+msgstr "Daseborde v1"
 
 #: .\city_dashboard\templates\list.html:37
 msgid "List of Consumption Points"
-msgstr ""
+msgstr "Lista de puntos de consumo"
 
 #: .\city_dashboard\templates\list.html:51
 msgid "Consumption Points"
-msgstr ""
+msgstr "Puntos de consumo"
 
 #: .\city_dashboard\templates\list.html:52
 msgid "Consumption"
-msgstr ""
+msgstr "Consumo"
 
 #: .\city_dashboard\templates\list.html:53
 msgid "Change"
-msgstr ""
+msgstr "Cambio"
 
 #: .\city_dashboard\templates\list.html:54
 msgid "More"
-msgstr ""
+msgstr "Más"
 
 #: .\templates\registration\login.html:34
 msgid "Please login to continue"
-msgstr ""
+msgstr "Por favor, inicie sesión para continuar"
 
 #: .\templates\util\translations.html:6
 msgid "This week"
-msgstr ""
+msgstr "Esta semana"
 
 #: .\templates\util\translations.html:7
 msgid "Last week"
-msgstr ""
+msgstr "La semana pasada"
 
 #: .\templates\util\translations.html:8
 msgid "This Year"
-msgstr ""
+msgstr "Este Año"
 
 #: .\templates\util\translations.html:9
 msgid "Last Year"
-msgstr ""
+msgstr "El Año pasado"
 
 #: .\templates\util\translations.html:12
 msgid "Total consumption this week"
-msgstr ""
+msgstr "Consumo total esta semana"
 
 #: .\templates\util\translations.html:13
 msgid "Meter number"
-msgstr ""
+msgstr "Número de contador"
 
 #: .\templates\util\translations.html:14
 msgid "Type"
-msgstr ""
+msgstr "Tipo"
 
 #: .\templates\util\translations.html:15
 msgid "More Details"
-msgstr ""
+msgstr "Más detalles"
 
 #: .\templates\util\translations.html:16
 msgid "Show daily data"
-msgstr ""
+msgstr "Mostrar datos diarios"
 
 #: .\templates\util\translations.html:17
 msgid "Add to chart"
-msgstr "Addo de carto"
+msgstr "Añadir al gráfico"

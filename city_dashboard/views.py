@@ -52,10 +52,9 @@ def list_meters(request):
 
 
 def get_from_dashboard(metric, endpoint='measurements/data', params=None):
-    return JsonResponse(
-        requests.
-            get(f"{NAIADES_API}/{endpoint}?metric={metric}{params or ''}").
-            json()
+    return JsonResponse(requests.
+        get(f"{NAIADES_API}/{endpoint}?metric={metric}{params or ''}").
+        json()
     )
 
 
