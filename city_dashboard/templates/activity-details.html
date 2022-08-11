@@ -21,7 +21,7 @@
                     <i class="fas fa-download"></i>
                   </button>
 
-            {% if activity in 'Public Garden,Font,Municipal offices,Municipal Sport facility,School,Fire Hydrant,Irrigation hydrant, Hydrant,House,Other Sport facility'  %}
+            {% if activity in 'Green Area,Font,Municipal Office,Sport Facilities,School,Cultural Centre,Public Market'  %}
                 <a href="{% url 'list' %}?activity={{ activity }}">
                     <span class="btn btn-sm btn-secondary">{% trans "View all" %}</span>
                 </a>

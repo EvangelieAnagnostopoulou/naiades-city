@@ -111,7 +111,7 @@
                 <a href="./index.html" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
                   <i class="nav-icon fas fa-tree"></i>
-                  <p>Public Gardens</p>
+                  <p>Green Areas</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -123,22 +123,22 @@
               <li class="nav-item">
                 <a href="./index3.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Municipal Sport facilities</p>
+                  <p>Sport Facilities</p>
                 </a>
               </li>
             </ul> -->
           </li>
           <li class="nav-item">
-            <a href="/{{ URL_PREFIX }}details?id=Public Garden" class="nav-link{% if request.path == '/details' and request.GET.id == 'Public Garden' %} active{% endif %}">
+            <a href="/{{ URL_PREFIX }}details?id=Green Area" class="nav-link{% if request.path == '/details' and request.GET.id == 'Green Area' %} active{% endif %}">
               <i class="nav-icon fas fa-tree"></i>
-                  <p>Public Gardens</p>
+                  <p>Green Areas</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="/{{ URL_PREFIX }}details?id=Font" class="nav-link{% if request.path == '/details' and request.GET.id == 'Font' %} active{% endif %}">
+            <a href="/{{ URL_PREFIX }}details?id=Fountain" class="nav-link{% if request.path == '/details' and request.GET.id == 'Fountain' %} active{% endif %}">
               <i class="nav-icon fas fa-tint"></i>
               <p>
-                Fonts
+                Fountains
               </p>
             </a>
           </li>
@@ -146,15 +146,15 @@
             <a href="/{{ URL_PREFIX }}details?id=Municipal Office" class="nav-link{% if request.path == '/details' and request.GET.id == 'Municipal Office' %} active{% endif %}">
               <i class="far fa-building nav-icon"></i>
               <p>
-                Municipal offices
+                Municipal Offices
               </p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="/{{ URL_PREFIX }}details?id=Municipal Sport Facility" class="nav-link{% if request.path == '/details' and request.GET.id == 'Municipal Sport Facility' %} active{% endif %}">
+            <a href="/{{ URL_PREFIX }}details?id=Sport Facilities" class="nav-link{% if request.path == '/details' and request.GET.id == 'Sport Facilities' %} active{% endif %}">
               <i class="fas fa-running nav-icon"></i>
               <p>
-                Municipal Sport facilities
+                Sport Facilities
               </p>
             </a>
           </li>
@@ -167,33 +167,15 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/{{ URL_PREFIX }}details?id=Fire Hydrant" class="nav-link{% if request.path == '/details' and request.GET.id == 'Fire Hydrant' %} active{% endif %}">
-              <i class="fas fa-fire-alt nav-icon"></i>
-              <p>Fire Hydrants</p>
+            <a href="/{{ URL_PREFIX }}details?id=Cultural Centre" class="nav-link{% if request.path == '/details' and request.GET.id == 'Cultural Centre' %} active{% endif %}">
+              <i class="fas fa-book nav-icon"></i>
+              <p>Cultural Centres</p>
             </a>
           </li>
            <li class="nav-item">
-            <a href="/{{ URL_PREFIX }}details?id=Irrigation Hydrant" class="nav-link{% if request.path == '/details' and request.GET.id == 'Irrigation Hydrant' %} active{% endif %}">
-              <i class="fas fa-tape nav-icon"></i>
-              <p>Irrigation hydrants</p>
-            </a>
-          </li>
-           <!--<li class="nav-item">
-            <a href="details?id=Fire Fire Hydrant" class="nav-link">
-              <i class="fas fa-water nav-icon"></i>
-              <p>Hydrants</p>
-            </a>
-          </li>-->
-           <li class="nav-item">
-            <a href="/{{ URL_PREFIX }}details?id=House" class="nav-link{% if request.path == '/details' and request.GET.id == 'House' %} active{% endif %}">
-              <i class="fas fa-home nav-icon"></i>
-              <p>Houses</p>
-            </a>
-          </li>
-           <li class="nav-item">
-            <a href="/{{ URL_PREFIX }}details?id=Other Sport Facility" class="nav-link{% if request.path == '/details' and request.GET.id == 'Other Sport Facility' %} active{% endif %}">
-              <i class="fas fa-skating nav-icon"></i>
-              <p>Other Sport facilities</p>
+            <a href="/{{ URL_PREFIX }}details?id=Public Market" class="nav-link{% if request.path == '/details' and request.GET.id == 'Public Market' %} active{% endif %}">
+              <i class="fas fa-coins nav-icon"></i>
+              <p>Public Markets</p>
             </a>
           </li>
         </ul>

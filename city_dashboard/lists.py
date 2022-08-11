@@ -1,12 +1,10 @@
 ACTIVITY_TYPES = (
     ("", "All watering points"),
-    ("Public Garden", "Public Gardens"),
+    ("Green Area", "Green Areas"),
+    ("Fountain", "Fountains"),
     ("Municipal Office", "Municipal Offices"),
+    ("Sport Facilities", "Sport Facilities"),
     ("School", "Schools"),
-    ("Irrigation Hydrant", "Irrigation Hydrants"),
-    ("Fire Hydrant", "Fire Hydrants"),
-    ("Font", "Fonts"),
-    ("Municipal Sport Facility", "Municipal Sport Facilities"),
-    ("House", "Houses"),
-    ("Other Sport Facility", "Other Sport Facilities"),
+    ("Cultural Centre", "Cultural Centres"),
+    ("Public Market", "Public Markets"),
 )
