@@ -24,16 +24,24 @@ def activity_details(request):
     }
 
     try:
-        name = [a[1] for a in ACTIVITY_TYPES if a[0] == _id][0]
+        title = [a[1] for a in ACTIVITY_TYPES if a[0] == _id][0]
 
         params.update({
             "activity": _id,
-            "name": name,
+            "title": title,
         })
     except IndexError:
+
+        # either use name with meter number,
+        # or just the meter number if name is not available
+        if request.GET.get("name"):
+            title = f"{request.GET['name']} (Meter {_id})"
+        else:
+            title = f'Meter {_id}'
+
         params.update({
             "meter_number": _id,
-            "name": f'Meter {_id}',
+            "title": title,
         })
 
     # render

@@ -12,16 +12,16 @@
     <div class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
-          <div class="col-sm-4">
-            <h1 class="m-0 text-dark">{{ name }}</h1>
+          <div class="col-sm-9">
+            <h1 class="m-0 text-dark">{{ title }}</h1>
           </div>
-          <div class="col-sm-3">
+          <div class="col-sm-3" style="text-align: right;">
 
             <button type="button" class="btn btn-sm btn-secondary" style="margin-left: 10px;" onclick="exportReport();">
                     <i class="fas fa-download"></i>
                   </button>
 
-            {% if activity in 'Green Area,Font,Municipal Office,Sport Facilities,School,Cultural Centre,Public Market'  %}
+            {% if activity in 'Green Area,Fountain,Municipal Office,Sport Facilities,School,Cultural Centre,Public Market'  %}
                 <a href="{% url 'list' %}?activity={{ activity }}">
                     <span class="btn btn-sm btn-secondary">{% trans "View all" %}</span>
                 </a>

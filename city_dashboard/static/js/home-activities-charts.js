@@ -5,7 +5,7 @@ $(function() {
         // format data by activity & sort from largest to smallest consumption
         const formattedData = data.map(datum => ({
             activity: datum.name,
-            litres: Number(datum.this_period)
+            litres: Math.round(Number(datum.this_period))
         })).sort(
             (a, b) => a.litres < b.litres ? 1 : -1
         );

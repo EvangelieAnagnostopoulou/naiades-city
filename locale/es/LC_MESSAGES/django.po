@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-07 11:38+0300\n"
+"POT-Creation-Date: 2022-08-13 12:02+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -65,7 +65,7 @@ msgid "Last year"
 msgstr "El año pasado"
 
 #: .\city_dashboard\templates\activity-details.html:123
-#: .\templates\util\translations.html:20
+#: .\templates\util\translations.html:21
 msgid "Water Consumption Report"
 msgstr "Informe sobre el consumo de agua"
 
@@ -92,7 +92,7 @@ msgstr "CONSUMO ANUAL"
 
 #: .\city_dashboard\templates\home.html:17
 msgid "Dashboard"
-msgstr "Daseborde"
+msgstr "Tablero"
 
 #: .\city_dashboard\templates\home.html:21
 msgid "Home"
@@ -100,25 +100,26 @@ msgstr "Inicio"
 
 #: .\city_dashboard\templates\home.html:22
 msgid "Dashboard v1"
-msgstr "Daseborde v1"
+msgstr "Tablero v1"
 
 #: .\city_dashboard\templates\list.html:37
 msgid "List of Consumption Points"
 msgstr "Lista de puntos de consumo"
 
 #: .\city_dashboard\templates\list.html:51
-msgid "Consumption Points"
-msgstr "Puntos de consumo"
+#: .\templates\util\translations.html:14
+msgid "Name"
+msgstr "Nombre"
 
 #: .\city_dashboard\templates\list.html:52
-msgid "Consumption"
-msgstr "Consumo"
+msgid "Meter Number"
+msgstr "Número de contador"
 
 #: .\city_dashboard\templates\list.html:53
-msgid "Change"
-msgstr "Cambio"
+msgid "Weekly Consumption"
+msgstr "Consumo semenal"
 
-#: .\city_dashboard\templates\list.html:54
+#: .\city_dashboard\templates\list.html:55
 msgid "More"
 msgstr "Más"
 
@@ -150,18 +151,27 @@ msgstr "Consumo total esta semana"
 msgid "Meter number"
 msgstr "Número de contador"
 
-#: .\templates\util\translations.html:14
+#: .\templates\util\translations.html:15
 msgid "Type"
 msgstr "Tipo"
 
-#: .\templates\util\translations.html:15
+#: .\templates\util\translations.html:16
 msgid "More Details"
 msgstr "Más detalles"
 
-#: .\templates\util\translations.html:16
+#: .\templates\util\translations.html:17
 msgid "Show daily data"
 msgstr "Mostrar datos diarios"
 
-#: .\templates\util\translations.html:17
+#: .\templates\util\translations.html:18
 msgid "Add to chart"
 msgstr "Añadir al gráfico"
+
+#~ msgid "Consumption Points"
+#~ msgstr "Puntos de consumo"
+
+#~ msgid "Consumption"
+#~ msgstr "Consumo"
+
+#~ msgid "Change"
+#~ msgstr "Cambio"
