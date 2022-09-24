@@ -166,7 +166,7 @@ else:
     FIXED_DATE = None
 
 # KeyRock Authentication
-OAUTH_SERVER_BASEURL = 'https://test.naiades-project.eu:3443'
+OAUTH_SERVER_BASEURL = 'https://naiades.simavi.ro:3443'
 SOCIALACCOUNT_ADAPTER = 'keyrock.adapter.KeyRockAdapter'
 ACCOUNT_LOGOUT_REDIRECT_URL = f'/{URL_PREFIX[:-1]}'
 SITE_ID = 1
