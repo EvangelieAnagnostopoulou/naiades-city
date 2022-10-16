@@ -84,6 +84,13 @@ def api_meters(request):
     return get_from_dashboard(metric='meter_info')
 
 
+def api_alerts(request):
+    return JsonResponse(requests.
+        get(f"{NAIADES_API}/device-alerts").
+        json()
+    )
+
+
 def api_meter_consumption(request):
     meter_number = request.GET.get("meter_number")
 

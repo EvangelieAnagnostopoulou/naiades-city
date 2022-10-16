@@ -16,13 +16,42 @@ $(function () {
         },
 
         // state management
+        alerts: null,
         fetchedMeasurements: null,
         measurements: null,
 
         // filters
         selectedActivityType: '',
+        alertOnly: false,
+
+        // control
+        $loading: $("#loading"),
 
         loadData: function() {
+            this.$loading.text("Loading...");
+
+            this.alertsByDevice = {};
+            const that = this;
+            $.ajax({
+                "url": `/${URL_PREFIX}api/alerts/`,
+                success: function ({alerts}) {
+                    $.each(alerts, function(idx, deviceAlert) {
+                       if (!(deviceAlert.device.serial_number in that.alertsByDevice)) {
+                           that.alertsByDevice[deviceAlert.device.serial_number] = [];
+                       }
+
+                       that.alertsByDevice[deviceAlert.device.serial_number].push(...deviceAlert.alerts);
+                    });
+
+                    that.loadMeasurementData();
+                },
+                error: function() {
+                    that.$loading.text("Something went wrong, please contact an admin.");
+                }
+            });
+        },
+
+        loadMeasurementData: function() {
             this.fetchedMeasurements = [];
             const that = this;
             $.ajax({
@@ -52,6 +81,8 @@ $(function () {
 
                             // filter & show
                             that.showFilteredMeasurements();
+
+                            that.$loading.text("Watering points loaded ✓");
                         }
                     })
                 }
@@ -70,7 +101,10 @@ $(function () {
             this.measurements = [];
             const that = this;
             $.each(this.fetchedMeasurements, function(idx, measurement) {
-                if ((that.selectedActivityType === '') || (measurement.meter.activity === that.selectedActivityType)) {
+                if (
+                    ((that.selectedActivityType === '') || (measurement.meter.activity === that.selectedActivityType)) &&
+                    ((that.alertOnly && measurement.meter.meter_number in that.alertsByDevice) || (!that.alertOnly))
+                ) {
                     that.measurements.push(measurement);
                 }
             });
@@ -90,6 +124,28 @@ $(function () {
             );
         },
 
+        getAlertPopupContent: function(meter) {
+            if (!(meter.meter_number in this.alertsByDevice)) {
+                return
+            }
+
+            const $alertList = $("<div />").addClass("alert-list");
+
+            $.each(this.alertsByDevice[meter.meter_number], function(idx, alert) {
+                const $alertItem = $("<div />").addClass("alert-item");
+
+                $alertItem.append($("<div />").addClass("alert-text").text(alert.alert));
+
+                $.each(alert.actions, function(jdx, action) {
+                    $alertItem.append($("<div />").addClass("action-text").text(action));
+                });
+
+                $alertList.append($alertItem);
+            });
+
+            return $alertList;
+        },
+
         getPopupContent: function(meter, consumption) {
             const that = this;
 
@@ -103,6 +159,7 @@ $(function () {
                 .append($(`<div class="prop-value">${meter.meter_number}</div>`))
                 .append($(`<div class="prop-label">${window.MESSAGES.home.type}</div>`))
                 .append($(`<div class="prop-value">${meter.activity}</div>`))
+                .append(that.getAlertPopupContent(meter))
                 .append($(`<a href="/${URL_PREFIX}details?id=${meter.meter_number}&name=${meter.name}" class="action">${window.MESSAGES.home.moreDetails}</a>`))
                 .append($(`<button class="btn btn-primary btn-sm action btn--first"><i class="fa fa-chart-line"></i> ${window.MESSAGES.home.showDailyData}</button>`)
                     .on("click", function() {
@@ -181,6 +238,17 @@ $(function () {
             $('#activity-type').on('change', function() {
                 // set new selection
                 that.selectedActivityType = $(this).val();
+
+                // filter & show
+                that.showFilteredMeasurements();
+
+                // show activity average
+                that.showActivityChart();
+            });
+
+            $('#alert-only').on('change', function() {
+                // set new selection
+                that.alertOnly = $(this).is(":checked");
 
                 // filter & show
                 that.showFilteredMeasurements();

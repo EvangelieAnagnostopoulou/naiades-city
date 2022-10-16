@@ -2,6 +2,15 @@
     height: 480px;
 }
 
+#alert-only {
+    margin-left: 20px;
+}
+
+#loading {
+    margin-left: 100px;
+    color: #212529;
+}
+
 .popup-content .consumption {
     font-weight: 600;
 }
@@ -17,6 +26,26 @@
 .popup-content .action {
     margin-top: 4px;
     display: block;
+}
+
+.popup-content .alert-list {
+    padding-top: 10px;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.popup-content .alert-list > .alert-item {
+    margin-bottom: 10px;
+}
+
+.popup-content .alert-list > .alert-item > .alert-text {
+    color: #e74c3c;
+}
+
+.popup-content .alert-list > .alert-item > .action-text {
+    margin-left: 20px;
+    color: #3498db;
+    font-style: italic;
 }
 
 .popup-content .action.btn--first {

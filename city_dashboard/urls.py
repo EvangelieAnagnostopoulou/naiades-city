@@ -11,6 +11,7 @@ urlpatterns = [
 
     # api
     path('api/meters/', views.api_meters, name='api-meters'),
+    path('api/alerts/', views.api_alerts, name='api-alerts'),
     path('api/meter-infos/', views.api_meter_infos, name='api-meter-infos'),
     path('api/meters/consumption/', views.api_meter_consumption, name='api-meter-consumption'),
     path('api/consumption/average/', views.api_average_consumption, name='api-average-consumption'),

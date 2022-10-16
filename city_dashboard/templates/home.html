@@ -4,7 +4,7 @@
 {% load i18n %}
 
 {% block css %}
-    <link rel="stylesheet" href="{% static 'css/home.css' %}?v=20200614.1">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}?v=20221016.1">
 {% endblock %}
 
 {% block content %}
@@ -36,6 +36,11 @@
                         <option value="{{ value }}">{{ label }}</option>
                     {% endfor %}
                 </select>
+
+                <input id="alert-only" type="checkbox" />
+                <label for="alert-only" style="font-weight: 400; color: #212529;">Only show points with alerts</label>
+
+                <span id="loading"></span>
             </div>
         </div>
     </div>
@@ -86,5 +91,5 @@
     <script src="{% static 'js/colors.js' %}"></script>
     <script src="{% static 'js/home-charts.js' %}?v=20200614.1"></script>
     <script src="{% static 'js/home-activities-charts.js' %}?v=20220813.1"></script>
-    <script src="{% static 'js/home.js' %}?v=20220813.1"></script>
+    <script src="{% static 'js/home.js' %}?v=20221016.1"></script>
 {% endblock %}
