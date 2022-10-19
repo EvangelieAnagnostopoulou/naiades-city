@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-13 12:02+0300\n"
+"POT-Creation-Date: 2022-10-19 23:30+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,8 +23,8 @@ msgid "View all"
 msgstr "Ver todo"
 
 #: .\city_dashboard\templates\activity-details.html:45
-#: .\city_dashboard\templates\home.html:47
-#: .\city_dashboard\templates\home.html:60
+#: .\city_dashboard\templates\home.html:52
+#: .\city_dashboard\templates\home.html:65
 msgid "Water Consumption"
 msgstr "Consumo de agua"
 
@@ -90,7 +90,7 @@ msgstr "CONSUMO MENSUAL"
 msgid "YEARLY CONSUMPTION"
 msgstr "CONSUMO ANUAL"
 
-#: .\city_dashboard\templates\home.html:17
+#: .\city_dashboard\templates\home.html:17 .\templates\base.html:106
 msgid "Dashboard"
 msgstr "Tablero"
 
@@ -122,6 +122,46 @@ msgstr "Consumo semenal"
 #: .\city_dashboard\templates\list.html:55
 msgid "More"
 msgstr "Más"
+
+#: .\templates\base.html:135
+msgid "Green Areas"
+msgstr ""
+
+#: .\templates\base.html:142
+msgid "Fountains"
+msgstr ""
+
+#: .\templates\base.html:150
+msgid "Municipal Offices"
+msgstr ""
+
+#: .\templates\base.html:158
+msgid "Sport Facilities"
+msgstr ""
+
+#: .\templates\base.html:166
+msgid "Schools"
+msgstr ""
+
+#: .\templates\base.html:173
+msgid "Cultural Centres"
+msgstr ""
+
+#: .\templates\base.html:179
+msgid "Public Markets"
+msgstr ""
+
+#: .\templates\base.html:201
+msgid "Copyright"
+msgstr ""
+
+#: .\templates\base.html:202
+msgid "All rights reserved."
+msgstr ""
+
+#: .\templates\base.html:204
+msgid "Version"
+msgstr ""
 
 #: .\templates\registration\login.html:34
 msgid "Please login to continue"

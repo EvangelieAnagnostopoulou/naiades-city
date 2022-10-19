@@ -1,3 +1,4 @@
+{% load i18n %}
 {% load static %}
 
 <!DOCTYPE html>
@@ -102,7 +103,7 @@
             <a href="/{{ URL_PREFIX }}" class="nav-link{% if request.path == '/' %} active{% endif %}">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Dashboard
+                {% trans "Dashboard" %}
                 <!--<i class="right fas fa-angle-left"></i>-->
               </p>
             </a>
@@ -131,14 +132,14 @@
           <li class="nav-item">
             <a href="/{{ URL_PREFIX }}details?id=Green Area" class="nav-link{% if request.path == '/details' and request.GET.id == 'Green Area' %} active{% endif %}">
               <i class="nav-icon fas fa-tree"></i>
-                  <p>Green Areas</p>
+                  <p>{% trans "Green Areas" %}</p>
             </a>
           </li>
           <li class="nav-item">
             <a href="/{{ URL_PREFIX }}details?id=Fountain" class="nav-link{% if request.path == '/details' and request.GET.id == 'Fountain' %} active{% endif %}">
               <i class="nav-icon fas fa-tint"></i>
               <p>
-                Fountains
+                {% trans "Fountains" %}
               </p>
             </a>
           </li>
@@ -146,7 +147,7 @@
             <a href="/{{ URL_PREFIX }}details?id=Municipal Office" class="nav-link{% if request.path == '/details' and request.GET.id == 'Municipal Office' %} active{% endif %}">
               <i class="far fa-building nav-icon"></i>
               <p>
-                Municipal Offices
+                {% trans "Municipal Offices" %}
               </p>
             </a>
           </li>
@@ -154,7 +155,7 @@
             <a href="/{{ URL_PREFIX }}details?id=Sport Facilities" class="nav-link{% if request.path == '/details' and request.GET.id == 'Sport Facilities' %} active{% endif %}">
               <i class="fas fa-running nav-icon"></i>
               <p>
-                Sport Facilities
+                {% trans "Sport Facilities" %}
               </p>
             </a>
           </li>
@@ -162,20 +163,20 @@
             <a href="/{{ URL_PREFIX }}details?id=School" class="nav-link{% if request.path == '/details' and request.GET.id == 'School' %} active{% endif %}">
               <i class="fas fa-school nav-icon"></i>
               <p>
-                Schools
+                {% trans "Schools" %}
               </p>
             </a>
           </li>
           <li class="nav-item">
             <a href="/{{ URL_PREFIX }}details?id=Cultural Centre" class="nav-link{% if request.path == '/details' and request.GET.id == 'Cultural Centre' %} active{% endif %}">
               <i class="fas fa-book nav-icon"></i>
-              <p>Cultural Centres</p>
+              <p>{% trans "Cultural Centres" %}</p>
             </a>
           </li>
            <li class="nav-item">
             <a href="/{{ URL_PREFIX }}details?id=Public Market" class="nav-link{% if request.path == '/details' and request.GET.id == 'Public Market' %} active{% endif %}">
               <i class="fas fa-coins nav-icon"></i>
-              <p>Public Markets</p>
+              <p>{% trans "Public Markets" %}</p>
             </a>
           </li>
         </ul>
@@ -197,10 +198,10 @@
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-    <strong>Copyright &copy; 2020 <a href="http://imu.ntua.gr/">IMU</a>.</strong>
-    All rights reserved.
+    <strong>{% trans "Copyright" %} &copy; 2020 <a href="http://imu.ntua.gr/">IMU</a>.</strong>
+    {% trans "All rights reserved." %}
     <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 0.1.0
+      <b>{% trans "Version" %}</b> 0.1.0
     </div>
   </footer>
 
