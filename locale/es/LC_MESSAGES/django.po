@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-19 23:30+0300\n"
+"POT-Creation-Date: 2022-10-28 16:53+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,38 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\city_dashboard\lists.py:4
+msgid "All consumption points"
+msgstr "Todos los puntos de consumo"
+
+#: .\city_dashboard\lists.py:5 .\templates\base.html:135
+msgid "Green Areas"
+msgstr ""
+
+#: .\city_dashboard\lists.py:6 .\templates\base.html:142
+msgid "Fountains"
+msgstr "Fuentes"
+
+#: .\city_dashboard\lists.py:7 .\templates\base.html:150
+msgid "Municipal Offices"
+msgstr "Oficinas municipales"
+
+#: .\city_dashboard\lists.py:8 .\templates\base.html:158
+msgid "Sport Facilities"
+msgstr "Instalaciones deportivas"
+
+#: .\city_dashboard\lists.py:9 .\templates\base.html:166
+msgid "Schools"
+msgstr "Colegios"
+
+#: .\city_dashboard\lists.py:10 .\templates\base.html:173
+msgid "Cultural Centres"
+msgstr ""
+
+#: .\city_dashboard\lists.py:11 .\templates\base.html:179
+msgid "Public Markets"
+msgstr ""
 
 #: .\city_dashboard\templates\activity-details.html:26
 msgid "View all"
@@ -65,7 +97,7 @@ msgid "Last year"
 msgstr "El año pasado"
 
 #: .\city_dashboard\templates\activity-details.html:123
-#: .\templates\util\translations.html:21
+#: .\templates\util\translations.html:25
 msgid "Water Consumption Report"
 msgstr "Informe sobre el consumo de agua"
 
@@ -102,12 +134,20 @@ msgstr "Inicio"
 msgid "Dashboard v1"
 msgstr "Tablero v1"
 
+#: .\city_dashboard\templates\home.html:33
+msgid "Show"
+msgstr "Mostrar"
+
+#: .\city_dashboard\templates\home.html:41
+msgid "Only show points with alerts"
+msgstr ""
+
 #: .\city_dashboard\templates\list.html:37
 msgid "List of Consumption Points"
 msgstr "Lista de puntos de consumo"
 
 #: .\city_dashboard\templates\list.html:51
-#: .\templates\util\translations.html:14
+#: .\templates\util\translations.html:15
 msgid "Name"
 msgstr "Nombre"
 
@@ -123,45 +163,17 @@ msgstr "Consumo semenal"
 msgid "More"
 msgstr "Más"
 
-#: .\templates\base.html:135
-msgid "Green Areas"
-msgstr ""
-
-#: .\templates\base.html:142
-msgid "Fountains"
-msgstr ""
-
-#: .\templates\base.html:150
-msgid "Municipal Offices"
-msgstr ""
-
-#: .\templates\base.html:158
-msgid "Sport Facilities"
-msgstr ""
-
-#: .\templates\base.html:166
-msgid "Schools"
-msgstr ""
-
-#: .\templates\base.html:173
-msgid "Cultural Centres"
-msgstr ""
-
-#: .\templates\base.html:179
-msgid "Public Markets"
-msgstr ""
-
 #: .\templates\base.html:201
 msgid "Copyright"
-msgstr ""
+msgstr "Copyright"
 
 #: .\templates\base.html:202
 msgid "All rights reserved."
-msgstr ""
+msgstr "Reservados todos los derechos"
 
 #: .\templates\base.html:204
 msgid "Version"
-msgstr ""
+msgstr "Versión"
 
 #: .\templates\registration\login.html:34
 msgid "Please login to continue"
@@ -184,31 +196,46 @@ msgid "Last Year"
 msgstr "El Año pasado"
 
 #: .\templates\util\translations.html:12
+msgid "Loading..."
+msgstr "Esperando..."
+
+#: .\templates\util\translations.html:13
 msgid "Total consumption this week"
 msgstr "Consumo total esta semana"
 
-#: .\templates\util\translations.html:13
+#: .\templates\util\translations.html:14
 msgid "Meter number"
 msgstr "Número de contador"
 
-#: .\templates\util\translations.html:15
+#: .\templates\util\translations.html:16
 msgid "Type"
 msgstr "Tipo"
 
-#: .\templates\util\translations.html:16
+#: .\templates\util\translations.html:17
 msgid "More Details"
 msgstr "Más detalles"
 
-#: .\templates\util\translations.html:17
+#: .\templates\util\translations.html:18
 msgid "Show daily data"
 msgstr "Mostrar datos diarios"
 
-#: .\templates\util\translations.html:18
+#: .\templates\util\translations.html:19
 msgid "Add to chart"
 msgstr "Añadir al gráfico"
 
-#~ msgid "Consumption Points"
-#~ msgstr "Puntos de consumo"
+#: .\templates\util\translations.html:20
+#, fuzzy
+#| msgid "Monthly Water Consumption Over Time"
+msgid "Daily water consumption over the last year"
+msgstr "Consumo mensual de agua a lo largo del tiempo"
+
+#: .\templates\util\translations.html:21
+msgid "Watering points loaded"
+msgstr ""
+
+#: .\templates\util\translations.html:22
+msgid "Something went wrong, please contact an admin."
+msgstr ""
 
 #~ msgid "Consumption"
 #~ msgstr "Consumo"

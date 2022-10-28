@@ -12,7 +12,7 @@ $(function() {
            let scroll = false;
            if (query === "meter_number") {
                path = "api/meters/consumption/";
-               title = "Daily water consumption over the last year";
+               title = window.MESSAGES.home.dailyWaterConsumptionOverLastYear;
                scroll = true;
            }
            else if (query === "activity") {

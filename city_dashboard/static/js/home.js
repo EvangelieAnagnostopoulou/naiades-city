@@ -28,7 +28,7 @@ $(function () {
         $loading: $("#loading"),
 
         loadData: function() {
-            this.$loading.text("Loading...");
+            this.$loading.text(window.MESSAGES.home.loading);
 
             this.alertsByDevice = {};
             const that = this;
@@ -46,7 +46,7 @@ $(function () {
                     that.loadMeasurementData();
                 },
                 error: function() {
-                    that.$loading.text("Something went wrong, please contact an admin.");
+                    that.$loading.text(window.MESSAGES.home.somethingWentWrong);
                 }
             });
         },
@@ -82,7 +82,7 @@ $(function () {
                             // filter & show
                             that.showFilteredMeasurements();
 
-                            that.$loading.text("Watering points loaded ✓");
+                            that.$loading.text(`${window.MESSAGES.home.wateringPointsLoaded} ✓`);
                         }
                     })
                 }

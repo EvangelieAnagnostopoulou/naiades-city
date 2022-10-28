@@ -30,7 +30,7 @@
     <div class="row">
         <div class="col-xs-12">
             <div id="dashboard-filters">
-                Show
+                {% trans "Show" %}
                 <select id="activity-type">
                     {% for value, label in ACTIVITY_TYPES %}
                         <option value="{{ value }}">{{ label }}</option>
@@ -38,7 +38,7 @@
                 </select>
 
                 <input id="alert-only" type="checkbox" />
-                <label for="alert-only" style="font-weight: 400; color: #212529;">Only show points with alerts</label>
+                <label for="alert-only" style="font-weight: 400; color: #212529;">{% trans "Only show points with alerts" %}</label>
 
                 <span id="loading"></span>
             </div>
@@ -89,7 +89,7 @@
         const URL_PREFIX = '{{ URL_PREFIX }}';
     </script>
     <script src="{% static 'js/colors.js' %}"></script>
-    <script src="{% static 'js/home-charts.js' %}?v=20200614.1"></script>
+    <script src="{% static 'js/home-charts.js' %}?v=20221028.1"></script>
     <script src="{% static 'js/home-activities-charts.js' %}?v=20220813.1"></script>
-    <script src="{% static 'js/home.js' %}?v=20221016.1"></script>
+    <script src="{% static 'js/home.js' %}?v=20221028.1"></script>
 {% endblock %}
