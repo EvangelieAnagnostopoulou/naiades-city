@@ -59,11 +59,15 @@ def list_meters(request):
     })
 
 
-def get_from_dashboard(metric, endpoint='measurements/data', params=None):
-    return JsonResponse(requests.
-        get(f"{NAIADES_API}/{endpoint}?metric={metric}{params or ''}").
+def get_from_dashboard(metric, endpoint='measurements/data', params=None, transform_fn=None):
+    response = requests.\
+        get(f"{NAIADES_API}/{endpoint}?metric={metric}{params or ''}").\
         json()
-    )
+
+    if transform_fn:
+        response["data"] = transform_fn(response["data"])
+
+    return JsonResponse(response)
 
 
 def api_weekly_total(request):
@@ -116,4 +120,15 @@ def api_meter_infos(request):
 
 
 def api_yearly_change_by_activity(request):
-    return get_from_dashboard(metric='yearly_change_by_activity')
+    return get_from_dashboard(
+        metric='yearly_change_by_activity',
+        transform_fn=lambda data: [
+            item
+            for item in data
+            if (item.get("name") or "").strip() not in [
+                "Conductividad 1-Pozo Muelle Poniente",
+                "Nivel pozo  - Muelle de Poniente",
+                "DFM-Test-001"
+            ]
+        ],
+    )

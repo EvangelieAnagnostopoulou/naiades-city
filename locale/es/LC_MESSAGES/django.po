@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-28 16:53+0300\n"
+"POT-Creation-Date: 2022-11-20 13:03+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,7 +24,7 @@ msgstr "Todos los puntos de consumo"
 
 #: .\city_dashboard\lists.py:5 .\templates\base.html:135
 msgid "Green Areas"
-msgstr ""
+msgstr "Zonas Verdes"
 
 #: .\city_dashboard\lists.py:6 .\templates\base.html:142
 msgid "Fountains"
@@ -44,11 +44,11 @@ msgstr "Colegios"
 
 #: .\city_dashboard\lists.py:10 .\templates\base.html:173
 msgid "Cultural Centres"
-msgstr ""
+msgstr "Centro cultural"
 
 #: .\city_dashboard\lists.py:11 .\templates\base.html:179
 msgid "Public Markets"
-msgstr ""
+msgstr "Mercados públicos"
 
 #: .\city_dashboard\templates\activity-details.html:26
 msgid "View all"
@@ -124,7 +124,7 @@ msgstr "CONSUMO ANUAL"
 
 #: .\city_dashboard\templates\home.html:17 .\templates\base.html:106
 msgid "Dashboard"
-msgstr "Tablero"
+msgstr "Panel"
 
 #: .\city_dashboard\templates\home.html:21
 msgid "Home"
@@ -132,7 +132,7 @@ msgstr "Inicio"
 
 #: .\city_dashboard\templates\home.html:22
 msgid "Dashboard v1"
-msgstr "Tablero v1"
+msgstr "Panel v1"
 
 #: .\city_dashboard\templates\home.html:33
 msgid "Show"
@@ -140,7 +140,7 @@ msgstr "Mostrar"
 
 #: .\city_dashboard\templates\home.html:41
 msgid "Only show points with alerts"
-msgstr ""
+msgstr "Mostrando únicamente los puntos con alertas"
 
 #: .\city_dashboard\templates\list.html:37
 msgid "List of Consumption Points"
@@ -231,7 +231,7 @@ msgstr "Consumo mensual de agua a lo largo del tiempo"
 
 #: .\templates\util\translations.html:21
 msgid "Watering points loaded"
-msgstr ""
+msgstr "Puntos de consumo cargados"
 
 #: .\templates\util\translations.html:22
 msgid "Something went wrong, please contact an admin."
