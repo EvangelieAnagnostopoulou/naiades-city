@@ -1,3 +1,3 @@
 from project.settings.staging import *
 
-DEBUG = False
+DEBUG = os.environ.get("DEBUG_UNSAFE") == "ON"
